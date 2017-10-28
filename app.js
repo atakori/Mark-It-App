@@ -98,12 +98,35 @@ let MOCK_CREATED_CLASSES = {
 	]
 }
 
+let MOCK_USERS = {
+	"users": [
+		{
+			"userName": "atakori",
+			"password": "passwordhash",
+			"firstName": "Alfredo",
+			"lastName": "Takori"
+		},
+		{
+			"userName": "otheruser",
+			"password": "passwordhash1",
+			"firstName": "Joe",
+			"lastName": "Morganson"
+		},
+		{
+			"userName": "testuser",
+			"password": "passwordhash2",
+			"firstName": "Aiesha",
+			"lastName": "Taylor"
+		}
+	]
+}
+//this will be used to implement the validate password feature
+
 function getCreatedClasses(callback) {
 	setTimeout(function() { callback(MOCK_CREATED_CLASSES)}, 100);
 }
 
 function displaycreatedClasses(data) {
-	//need to add on click for search button
 	for (index in data.createdClasses) {
 		$('.class_results_page').html(`<li class = "class_name"> ${data.className} |
 			 ${data.genre} | ${data.studio.name} | ${data.weeklyDayandTime}
@@ -115,4 +138,13 @@ function getAndDisplayCreatedClasses () {
 	getCreatedClasses(displaycreatedClasses);
 }
 
-$(getAndDisplayCreatedClasses)
+//RESULTS SECTION
+function getUserSearchterm() {
+	let searchterm = $('.search_term').val();
+	//this is the value I will be using to pass in as a parameter
+	//for mongoose once the DB it is created
+	// .find{choreographer: ${searchterm}} to filter out the database
+	//with classes
+}
+
+$(getAndDisplayCreatedClasses());
