@@ -1,2 +1,11 @@
 language: node_js
 node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: q+lBSaCIDJ683BeF7eFxy1o0kABmc4Id68hHjP7O/s0Oww8iEJYCCQE4mgyY54S1GDXTqNgepTlMwHyE5/jhfZPkiFVEzXEgTjShFbR2f/C4XAI2dvWxSiFtdi5LOCabZhvLMiG8nWBde1wm34QW5XOfPcX7qjzUQOrM8A4F8OgeWr+o4MPYSwL2lvzOIEkYO2M/5wwNX3mJp+b5Ab8f5zo37nfi+8oY+4kkH42Uhld3DRWLncQV/xBH5CipwPG+xCq/wE/PIVhhn/NZBPOk8gop+Z6B45nY2ZFu2Gvad8HztYQJYrL4b9rBLGCXuvV6bXV9/3Q6yPihrbeXCNXkpABdqJ3WA6PhRWj8Y3D5fNBmwkSQ6U2UAKyFXnXqmfBLZgOjWuivnShsa24HUh/NhEf6YznvCG1e3wo7aTQaY6EWrRo0f7wBSBCZ9kDO0j4A/LSCyrPeEiflICMuYKYcLXXRyppUExwbm0wcIyfGSJSawg7PI+LsbbYnC3jjbBE1b7xn0PJyDjoEO0vWzIHvgWTeiSdIrChSLoIh/xV/NafPqlbrPFqxQL72JrcYcEjjxb1FABbrKSyWma31yM1QvYM8O+OPWEts0cY+C7vWAo8EB/rF4ILn2+oezxTBM6r49B9BHfaY4Fk3iH2FbxZIBIRfz0dKe6bwAJjhkBGlGD4=
+  app: agile-ravine-63204
+  on:
+    repo: atakori/Mark-It-App
