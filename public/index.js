@@ -9,6 +9,16 @@ function handleNavLoginButton() {
 		event.preventDefault();
 		showLoginPage();
 		hideLandingPage();
+		hideResultsPage()
+	})
+}
+
+function handleSearchLinkButton() {
+	$('.nav').on('click', '.search_link', function(event) {
+		event.preventDefault();
+		showResultsPage();
+		hideLandingPage();
+		hideLoginPage();
 	})
 }
 
@@ -47,5 +57,7 @@ function hideResultsPage() {
 
 $(handleLoginButton());
 $(handleNavLoginButton());
+$(handleSearchLinkButton());
 $(handleSearchResultsButton());
 hideLoginPage();
+hideResultsPage();
