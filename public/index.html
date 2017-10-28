@@ -7,6 +7,7 @@
 	<title>Mark It</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type = 'text/javascript' src='https://code.jquery.com/jquery-3.2.1.js'></script>
 
 </head>
 <body>
@@ -18,7 +19,7 @@
 		    </div>
 		    <ul class="nav navbar-nav navbar-right">
 		      <li class= "sign_up_button"><a href="#">Sign Up</a></li>
-		      <li class= "login_button"><a href="#">Login </a></li>
+		      <li class= "login_button"><a href="#" class = "login_link">Login </a></li>
 		    </ul>
 		  </div>
 		</nav>
@@ -40,10 +41,10 @@
 			<form class= "login_page_form">
 				<h1> Login </h1>
 				<p> Username: </p>
-				<input type="text" name= "UserName" placeholder= "username">
+				<input type="text" name= "User_name" placeholder= "username">
 				<p> Password: </p>
 				<input type="text" name= "password" placeholder= "password">
-				<button type="submit">Login</button>
+				<button type="submit" class= "login_button">Login</button>
 				<p> <a href= "#"> Sign up for an account </a></p>
 			</form>
 		</section>
@@ -63,8 +64,8 @@
 	</main>
 
 	<script type = 'text/javascript' src='index.js'></script>
-	<script type = 'text/javascript' src='https://code.jquery.com/jquery-3.2.1.js'></script>
 
-	<script type="text/javascript" src= '/app.js'></script>
+
+	<script type="text/javascript" src= '../app.js'></script>
 </body>
 </html>

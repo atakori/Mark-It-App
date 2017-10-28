@@ -21,7 +21,7 @@ let MOCK_CREATED_CLASSES = {
 		},
 		{
 			"id": "222222",
-			"className": "Discover Hip Hop"
+			"className": "Discover Hip Hop",
 			"genre": "Hip Hop",
 			"difficulty": "Beginner",
 			"choreographer": "Alfredo Takori",
@@ -59,12 +59,12 @@ let MOCK_CREATED_CLASSES = {
 		},
 		{
 			"id": "444444",
-			"className": "Slide and Tap"
+			"className": "Slide and Tap",
 			"genre": "Tap",
 			"difficulty": "Intermediate",
 			"choreographer": "Eliza Shumucker",
 			"studio": {
-				"name": "Gotta Dance ATL"
+				"name": "Gotta Dance ATL",
 				"address": {
 					"street": "1879 tip tap avenue",
 					"city": "Atlanta",
@@ -78,12 +78,12 @@ let MOCK_CREATED_CLASSES = {
 		},
 		{
 			"id": "555555",
-			"className": "Full Out"
+			"className": "Full Out",
 			"genre": "Ballet",
 			"difficulty": "Professional",
 			"choreographer": "Sarah Hilmer",
 			"studio": {
-				"name": "The Ballet Institute": ,
+				"name": "The Ballet Institute",
 				"address": {
 					"street": "5463 Alastair Road",
 					"city": "New York",
@@ -95,11 +95,11 @@ let MOCK_CREATED_CLASSES = {
 			"dateCreated": "06/07/2019",
 			"description": "Barre, tehcnique, and choreography all in one class."
 		}
-	];
+	]
 }
 
 function getCreatedClasses(callback) {
-	setTimeout(function() { callbackfunction(createdClasses)}, 100);
+	setTimeout(function() { callback(MOCK_CREATED_CLASSES)}, 100);
 }
 
 function displaycreatedClasses(data) {
