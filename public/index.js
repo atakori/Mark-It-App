@@ -4,12 +4,22 @@ function handleLoginButton() {
 	});
 }
 
+function handleSignUpLink() {
+		$('.nav').on('click', '.sign_up_link', function(event) {
+		event.preventDefault();
+		showSignUpPage();
+		hideLandingPage();
+		hideResultsPage()
+	})
+}
+
 function handleNavLoginButton() {
 	$('.nav').on('click', '.login_link', function(event) {
 		event.preventDefault();
 		showLoginPage();
 		hideLandingPage();
 		hideResultsPage()
+		hideSignUpPage();
 	})
 }
 
@@ -19,6 +29,7 @@ function handleNavLogOutButton() {
 		hideLoginPage();
 		showLandingPage();
 		hideResultsPage();
+		hideSignUpPage();
 	})
 }
 
@@ -28,6 +39,7 @@ function handleSearchLinkButton() {
 		showResultsPage();
 		hideLandingPage();
 		hideLoginPage();
+		hideSignUpPage();
 	})
 }
 
@@ -38,6 +50,7 @@ function handleLogoButton() {
 		hideLoginPage();
 		hideResultsPage();
 		hideUploadPage();
+		hideSignUpPage
 	})
 }
 
@@ -56,6 +69,14 @@ function hideLandingPage() {
 
 function showLandingPage() {
 	$('.landing_page').show();
+}
+
+function hideSignUpPage() {
+	$('.sign_up_page').hide();
+}
+
+function showSignUpPage() {
+	$('.sign_up_page').show();
 }
 
 function hideLoginPage() {
@@ -83,6 +104,7 @@ function hideUploadPage() {
 }
 
 $(handleLoginButton());
+$(handleSignUpLink());
 $(handleNavLoginButton());
 $(handleSearchLinkButton());
 $(handleSearchResultsButton());
@@ -91,3 +113,4 @@ $(handleNavLogOutButton());
 hideLoginPage();
 hideResultsPage();
 hideUploadPage();
+hideSignUpPage();
