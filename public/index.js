@@ -13,12 +13,31 @@ function handleNavLoginButton() {
 	})
 }
 
+function handleNavLogOutButton() {
+	$('.nav').on('click', '.logout_link', function(event) {
+		event.preventDefault();
+		hideLoginPage();
+		showLandingPage();
+		hideResultsPage();
+	})
+}
+
 function handleSearchLinkButton() {
 	$('.nav').on('click', '.search_link', function(event) {
 		event.preventDefault();
 		showResultsPage();
 		hideLandingPage();
 		hideLoginPage();
+	})
+}
+
+function handleLogoButton() {
+	$('.navbar').on('click', '.navbar-brand', function(event) {
+		event.preventDefault();
+		showLandingPage();
+		hideLoginPage();
+		hideResultsPage();
+		hideUploadPage();
 	})
 }
 
@@ -67,6 +86,8 @@ $(handleLoginButton());
 $(handleNavLoginButton());
 $(handleSearchLinkButton());
 $(handleSearchResultsButton());
+$(handleLogoButton());
+$(handleNavLogOutButton());
 hideLoginPage();
 hideResultsPage();
 hideUploadPage();
