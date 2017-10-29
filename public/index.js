@@ -55,9 +55,18 @@ function hideResultsPage() {
 	$('.class_results_page').hide();
 }
 
+function showUploadPage() {
+	$('.upload_video_page').show();
+}
+
+function hideUploadPage() {
+	$('.upload_video_page').hide();
+}
+
 $(handleLoginButton());
 $(handleNavLoginButton());
 $(handleSearchLinkButton());
 $(handleSearchResultsButton());
 hideLoginPage();
 hideResultsPage();
+hideUploadPage();
