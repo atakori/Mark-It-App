@@ -10,6 +10,7 @@ function handleSignUpLink() {
 		showSignUpPage();
 		hideLandingPage();
 		hideResultsPage()
+		hideLoginPage();
 	})
 }
 
@@ -30,6 +31,8 @@ function handleNavLogOutButton() {
 		showLandingPage();
 		hideResultsPage();
 		hideSignUpPage();
+		//need to make it serve the index.html file once
+		//the api and backend is set up
 	})
 }
 
@@ -50,7 +53,7 @@ function handleLogoButton() {
 		hideLoginPage();
 		hideResultsPage();
 		hideUploadPage();
-		hideSignUpPage
+		hideSignUpPage();
 	})
 }
 
@@ -61,7 +64,6 @@ function handleSearchResultsButton() {
 		getUserSearchterm();
 	})
 }
-
 
 function hideLandingPage() {
 	$('.landing_page').hide();
