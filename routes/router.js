@@ -26,4 +26,8 @@ router.get("/upload", function (req, res) {
 	res.render("uploadVideo");
 })
 
+router.get("/searchclasses", function (req, res) {
+	res.render("search");
+})
+
 module.exports = router;
