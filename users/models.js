@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
+const passportLocalMongoose = require("passport-local-mongoose");
 
 const UserSchema = mongoose.Schema({
 	userName: {
@@ -22,6 +23,8 @@ UserSchema.methods.apiRepr = function() {
         lastName: this.lastName || ''
     };
 };
+
+UserSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model('User', UserSchema);
 

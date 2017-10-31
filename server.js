@@ -2,7 +2,7 @@ var express = require('express');
 const bodyParser = require('body-parser');
 const LocalStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
-const User = require("./users/models")
+const {User} = require("./users/models")
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
@@ -15,6 +15,17 @@ app.use(express.static('public'));
 mongoose.Promise = global.Promise;
 const {PORT, DATABASE_URL} = require('./config');
 
+app.use(require("express-session") ({
+    secret: "This dance website is totally useful!",
+    resave: false,
+    saveUnintialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 let server;
 
