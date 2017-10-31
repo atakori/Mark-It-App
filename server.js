@@ -1,4 +1,5 @@
 var express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const LocalStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
@@ -9,7 +10,12 @@ const passport = require('passport');
 
 var app = express();
 app.use(express.static('public'));
-/*app.listen(process.env.PORT || 8080);*/
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
+
+/*const {router: routesRouter} = require('./routes');*/
 
 
 mongoose.Promise = global.Promise;
@@ -23,6 +29,22 @@ app.use(require("express-session") ({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+/*ROUTES*/
+/*app.use('/', routesRouter);*/
+app.use('/', function(req,res) {
+    res.render("index");
+});
+
+app.use('/userHome', function(req,res) {
+    res.render("loggedIn");
+});
+
+/**/
+
+/*AUTH ROUTES*/
+
+/**/
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
