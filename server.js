@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 
-/*const {router: routesRouter} = require('./routes');*/
+const router = require('./routes/router');
 
 
 mongoose.Promise = global.Promise;
@@ -31,14 +31,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /*ROUTES*/
-/*app.use('/', routesRouter);*/
-app.use('/', function(req,res) {
+app.use('/', router);
+/*app.use('/', function(req,res) {
     res.render("index");
-});
+});*/
 
-app.use('/userHome', function(req,res) {
+/*app.use('/userHome', function(req,res) {
     res.render("loggedIn");
-});
+});*/
 
 /**/
 

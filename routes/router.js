@@ -10,4 +10,8 @@ router.get("/", function (req,res) {
     res.render("index");
 })
 
-module.exports = {router};
+router.get("/userHome", function (req,res) {
+    res.render("loggedIn");
+})
+
+module.exports = router;
