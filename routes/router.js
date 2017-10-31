@@ -22,4 +22,8 @@ router.get("/signup", function (req,res) {
 	res.render("signup");
 })
 
+router.get("/upload", function (req, res) {
+	res.render("uploadVideo");
+})
+
 module.exports = router;
