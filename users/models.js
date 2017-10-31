@@ -1,8 +1,8 @@
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 
-const UserSchema = moongoose.UserSchema({
-	username: {
+const UserSchema = mongoose.Schema({
+	userName: {
 		type:String,
 		required: true,
 		unique: true
@@ -17,18 +17,10 @@ const UserSchema = moongoose.UserSchema({
 
 UserSchema.methods.apiRepr = function() {
     return {
-        username: this.username || '',
+        userName: this.userName || '',
         firstName: this.firstName || '',
         lastName: this.lastName || ''
     };
-};
-
-UserSchema.methods.validatePassword = function(password) {
-    return bcrypt.compare(password, this.password);
-};
-
-UserSchema.statics.hashPassword = function(password) {
-    return bcrypt.hash(password, 10);
 };
 
 const User = mongoose.model('User', UserSchema);

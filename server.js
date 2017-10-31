@@ -1,7 +1,8 @@
 var express = require('express');
-require('dotenv').config();
 const bodyParser = require('body-parser');
-const express = require('express');
+const LocalStrategy = require("passport-local");
+const passportLocalMongoose = require("passport-local-mongoose");
+const User = require("./users/models")
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
@@ -9,6 +10,10 @@ const passport = require('passport');
 var app = express();
 app.use(express.static('public'));
 app.listen(process.env.PORT || 8080);
+
+
+mongoose.Promise = global.Promise;
+const {PORT, DATABASE_URL} = require('./config');
 
 
 let server;
