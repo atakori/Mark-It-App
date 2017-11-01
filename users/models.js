@@ -3,22 +3,22 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const UserSchema = mongoose.Schema({
-	userName: {
+	username: {
 		type:String,
 		required: true,
 		unique: true
 	},
 	password: {
 		type:String,
-		required:true,
+	/*	required:true,*/
 	},
-		firstName: {type: String, default: ''},
-    	lastName: {type: String, default: ''}
+		firstname: {type: String},
+    	lastname: {type: String}
 	})
 
 UserSchema.methods.apiRepr = function() {
     return {
-        userName: this.userName || '',
+        username: this.userName || '',
         firstName: this.firstName || '',
         lastName: this.lastName || ''
     };

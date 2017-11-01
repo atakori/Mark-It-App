@@ -15,39 +15,24 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 
-const router = require('./routes/router');
-
+const routesRouter = require('./routes/router');
+const authRouter = require('./auth/router');
 
 mongoose.Promise = global.Promise;
 const {PORT, DATABASE_URL} = require('./config');
 
-app.use(require("express-session") ({
-    secret: "This dance website is totally useful!",
-    resave: false,
-    saveUnintialized: false
-}))
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 /*ROUTES*/
-app.use('/', router);
-/*app.use('/', function(req,res) {
-    res.render("index");
-});*/
-
-/*app.use('/userHome', function(req,res) {
-    res.render("loggedIn");
-});*/
-
-/**/
+app.use('/', routesRouter);
 
 /*AUTH ROUTES*/
-
+app.use('/signup', authRouter);
+//handling user sign up
+/*app.use('/signup',)*/
 /**/
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+
 
 let server;
 
