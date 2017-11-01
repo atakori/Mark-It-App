@@ -6,7 +6,6 @@ const UserSchema = mongoose.Schema({
 	username: {
 		type:String,
 		required: true,
-		unique: true
 	},
 	password: {
 		type:String,
@@ -18,9 +17,9 @@ const UserSchema = mongoose.Schema({
 
 UserSchema.methods.apiRepr = function() {
     return {
-        username: this.userName || '',
-        firstName: this.firstName || '',
-        lastName: this.lastName || ''
+        username: this.username || '',
+        firstName: this.firstname || '',
+        lastName: this.lastname || ''
     };
 };
 

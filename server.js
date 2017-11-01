@@ -17,19 +17,17 @@ app.engine('html', require('ejs').renderFile);
 
 const routesRouter = require('./routes/router');
 const authRouter = require('./auth/router');
+const loginRouter = require('./auth/loginrouter');
 
 mongoose.Promise = global.Promise;
 const {PORT, DATABASE_URL} = require('./config');
-
-
 
 /*ROUTES*/
 app.use('/', routesRouter);
 
 /*AUTH ROUTES*/
 app.use('/signup', authRouter);
-//handling user sign up
-/*app.use('/signup',)*/
+app.use('/login', loginRouter);
 /**/
 
 
