@@ -12,19 +12,14 @@ const jsonParser = bodyParser.json();
 router.use(bodyParser.urlencoded({extended: true}));
 
 
-router.use(require("express-session") ({
+/*router.use(require("express-session") ({
     secret: "This dance website is totally useful!",
     resave: false,
-    saveUnintialized: false
+    saveUninitialized: false
 }))
 
-
-router.use(passport.initialize());
-router.use(passport.session());
-
-passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.deserializeUser(User.deserializeUser());*/
 
 //this is for the signup route!
 router.post("/",function(req,res) {
@@ -39,8 +34,8 @@ router.post("/",function(req,res) {
 				console.log(err);
 				return res.render('signup');
 			}
-			console.log("MADE IT THIS FAR");
 			passport.authenticate("local")(req, res, function() {
+				console.log("USER HAS BEEN AUTHENTICATED");
 				res.redirect("/userHome");
 			})
 		})
