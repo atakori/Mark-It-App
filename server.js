@@ -7,6 +7,7 @@ const {User} = require("./users/models")
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
+const mongoStore = require('mongo-store');
 
 var app = express();
 app.use(express.static('public'));
@@ -21,6 +22,21 @@ const loginRouter = require('./auth/loginrouter');
 
 mongoose.Promise = global.Promise;
 const {PORT, DATABASE_URL} = require('./config');
+
+app.use(require("express-session") ({
+    secret: "This dance website is totally useful!",
+    resave: false,
+    saveUninitialized: false
+/*    store: new mongoStore({
+     url: DATABASE_URL,
+     collection: 'sessions'
+  })*/
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 /*ROUTES*/
 app.use('/', routesRouter);

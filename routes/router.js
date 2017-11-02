@@ -10,7 +10,7 @@ router.get("/", function (req,res) {
     res.render("index");
 })
 
-router.get("/userHome", /*isLoggedIn,*/ function (req,res) {
+router.get("/userHome", isLoggedIn, function (req,res) {
     res.render("loggedIn");
 })
 
@@ -37,9 +37,11 @@ router.get("/logout", function(req,res) {
 
 function isLoggedIn(req,res,next) {
 	if(req.isAuthenticated()) {
+		console.log(req.isAuthenticated())
 		return next();
 	}
 	res.redirect("/login")
+	console.log(req.isAuthenticated())
 }
 
 module.exports = router;

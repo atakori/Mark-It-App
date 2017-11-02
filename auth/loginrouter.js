@@ -12,16 +12,6 @@ const jsonParser = bodyParser.json();
 router.use(bodyParser.urlencoded({extended: true}));
 
 
-router.use(require("express-session") ({
-    secret: "This dance website is totally useful!",
-    resave: false,
-    saveUnintialized: false
-}))
-
-
-router.use(passport.initialize());
-router.use(passport.session());
-
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
