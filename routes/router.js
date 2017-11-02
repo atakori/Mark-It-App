@@ -10,7 +10,7 @@ router.get("/", function (req,res) {
     res.render("index");
 })
 
-router.get("/userHome", function (req,res) {
+router.get("/userHome", /*isLoggedIn,*/ function (req,res) {
     res.render("loggedIn");
 })
 
@@ -22,17 +22,24 @@ router.get("/signup", function (req,res) {
 	res.render("signup");
 })
 
-router.get("/upload", function (req, res) {
+router.get("/upload", isLoggedIn, function (req, res) {
 	res.render("uploadVideo");
 })
 
-router.get("/searchclasses", function (req, res) {
+router.get("/searchclasses", isLoggedIn, function (req, res) {
 	res.render("search");
 })
 
-router.get("/logout", function(res,res) {
-	red.logout();
-	res.render("/");
+router.get("/logout", function(req,res) {
+	req.logout();
+	res.redirect("/");
 })
+
+function isLoggedIn(req,res,next) {
+	if(req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect("/login")
+}
 
 module.exports = router;
