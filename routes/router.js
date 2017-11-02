@@ -30,4 +30,9 @@ router.get("/searchclasses", function (req, res) {
 	res.render("search");
 })
 
+router.get("/logout", function(res,res) {
+	red.logout();
+	res.render("/");
+})
+
 module.exports = router;
