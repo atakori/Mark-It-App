@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+
+<meta charset='utf-8' name='viewport' content='width=device-width, initial-scale=1'>
+
+<head>
+	<title>Mark It</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type = 'text/javascript' src='https://code.jquery.com/jquery-3.2.1.js'></script>
+
+</head>
+<body>
+	<Header role= "banner">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/userHome">Mark It</a>
+		    </div>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li class = "logout_link"><a href="/" class = "logout_link">Logout </a></li>
+		      <li class= "search_link"><a href="/searchClasses" class = "login_link">Search </a></li>
+		      <li><a href="/makeClass" class = "create_class_link">Create a class </a></li>
+		    </ul>
+		  </div>
+		</nav>
+	</header>
+	<!-- "id": "111111",
+			"className": "Ebb and Flow",
+			"genre": "Modern",
+			"difficulty": "Intermediate",
+			"choreographer": "Alfredo Takori",
+			"studio": {
+				"name": "Dance101",
+				"address": {
+					"street": "123 dance avenue" ,
+					"city": "Atlanta" ,
+					"state": "GA",
+					"zipcode": "30329"
+				},
+			},
+			"weeklyDayandTime": "Tuesdays at 8PM",
+			"dateCreated": "10/28/2017",
+			"description": "If you want a good workout, take this class!",
+			"currentUsers": ["atakori", "otheruser"],
+			"videos": [{
+				"title": "Dance#1",
+				"classDate": "10/28/2017",
+				"dancers": "Alfredo Takori",
+				"uploadDate": "10/28/2017",
+				"videoPath": "/"
+			}, -->
+	<main role= "main">
+		<section class= "create_class_page">
+			<h1>Create a new Class</h1>
+			<form class= "create_class_form">
+			<label>Class Name</label>
+			<input type="text" class="class_name_input">
+			<label>Genre</label>
+			<input type="text" class="class_genre_input" placeholder= "Contemporary, Hip hop, etc.">
+			<label>Day and Time of class</label>
+			<input type="text" class="class_schedule_input" placeholder= "Tuesdays at 8PM">
+			<label> Difficulty</label>
+			<input type="text" class="difficulty_input" placeholder= "Intermediate">
+			<label> Choreographer Name</label>
+			<input type="text" class="choreographer_name_input">
+			<label> Studio Name</label>
+			<input type="text" class="studio_name_input">
+			<label> Studio street address</label>
+			<input type="text" class="street_name_input">
+			<label> City</label>
+			<input type="text" class="city_input">
+			<label> State</label>
+			<input type="text" class="state_name_input">
+			<label> Zipcode</label>
+			<input type="text" class="zipcode_input">
+			<label>Class Description</label>
+			<input type="text" class="class_schedule_input">
+			<button type= "submit">Create my class</button>
+			</form>
+		</section>
+
+	</main>
+
+	<script type = 'text/javascript' src='index.js'></script>
+
+
+	<script type="text/javascript" src= '../app.js'></script>
+</body>
+</html>

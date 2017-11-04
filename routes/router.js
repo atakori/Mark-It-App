@@ -29,6 +29,9 @@ router.get("/upload", isLoggedIn, function (req, res) {
 router.get("/searchclasses", isLoggedIn, function (req, res) {
 	res.render("search");
 })
+router.get("/makeClass", isLoggedIn, function (req, res) {
+	res.render("createClass");
+})
 
 router.get("/logout", function(req,res) {
 	req.logout();
