@@ -1,7 +1,7 @@
 let MOCK_CLASSES = {
 	"classes:": [
 		{
-			"id": "111111",
+			"_id": "111111",
 			"className": "Ebb and Flow",
 			"genre": "Modern",
 			"difficulty": "Intermediate",
@@ -19,23 +19,10 @@ let MOCK_CLASSES = {
 			"dateCreated": "10/28/2017",
 			"description": "If you want a good workout, take this class!",
 			"currentUsers": ["atakori", "otheruser"],
-			"videos": [{
-				"title": "Dance#1",
-				"classDate": "10/28/2017",
-				"dancers": "Alfredo Takori",
-				"uploadDate": "10/28/2017",
-				"videoPath": "/"
-			},
-			{
-				"title": "Dance#2",
-				"classDate": "10/28/2017",
-				"dancers": "Ken McDaniels, Ricky Sullivan",
-				"uploadDate": "10/28/2017",
-				"videoPath": "/"
-			}]
+			"videos": []
 		},
 		{
-			"id": "222222",
+			"_id": "222222",
 			"className": "Discover Hip Hop",
 			"genre": "Hip Hop",
 			"difficulty": "Beginner",
@@ -53,16 +40,10 @@ let MOCK_CLASSES = {
 			"dateCreated": "02/24/2017",
 			"description": "Perfect for beginners!",
 			"currentUsers": ["testuser", "otheruser"],
-			"videos": {
-				"title": "Dance#3",
-				"classDate": "10/28/2017",
-				"dancers": "Tiffany Lo, Angelica Peters, Dante B.",
-				"uploadDate": "05/13/2017",
-				"videoPath": "/"
-			}
+			"videos": []
 		},
 		{
-			"id": "333333",
+			"_id": "333333",
 			"className": "Breaking it down",
 			"genre": "Hip Hop",
 			"difficulty": "Advanced",
@@ -82,7 +63,7 @@ let MOCK_CLASSES = {
 			"currentUsers": []
 		},
 		{
-			"id": "444444",
+			"_id": "444444",
 			"className": "Slide and Tap",
 			"genre": "Tap",
 			"difficulty": "Intermediate",
@@ -100,16 +81,10 @@ let MOCK_CLASSES = {
 			"dateCreated": "05/22/2018",
 			"description": "Make sure you bring your tap shoes!",
 			"currentUsers": ["otheruser"],
-			"videos": {
-				"title": "Dance#4",
-				"classDate": "07/13/2018",
-				"dancers": "Alfredo Takori",
-				"uploadDate": "07/13/2018",
-				"videoPath": "/"
-			},
+			"videos": []
 		},
 		{
-			"id": "555555",
+			"_id": "555555",
 			"className": "Full Out",
 			"genre": "Ballet",
 			"difficulty": "Professional",
@@ -127,27 +102,7 @@ let MOCK_CLASSES = {
 			"dateCreated": "06/07/2019",
 			"description": "Barre, tehcnique, and choreography all in one class.",
 			"currentUsers": ["atakori", "otheruser", "testuser"],
-			"videos": [{
-				"title": "Dance#5",
-				"classDate": "02/24/2018",
-				"dancers": "Alfredo Takori",
-				"uploadDate": "02/24/2018",
-				"videoPath": "/"
-			},
-			{
-				"title": "Dance#6",
-				"classDate": "05/03/2019",
-				"dancers": "Alfredo Takori",
-				"uploadDate": "05/03/2018",
-				"videoPath": "/"
-			},
-			{
-				"title": "Dance#7",
-				"classDate": "03/18/2018",
-				"dancers": "Alfredo Takori",
-				"uploadDate": "03/18/2018",
-				"videoPath": "/"
-			}]
+			"videos": []
 		}
 	]
 }
@@ -174,7 +129,7 @@ let MOCK_USERS = {
 		}
 	]
 }
-//this will be used to implement the validate password feature
+//adding jquery to create classes page
 
 function getClasses(callback) {
 	setTimeout(function() { callback(MOCK_CLASSES)}, 100);

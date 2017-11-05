@@ -29,38 +29,38 @@
 	<main role= "main">
 		<section class= "create_class_page">
 			<h1>Create a new Class</h1>
-			<form class= "create_class_form">
-			<label>Class Name</label>
-			<input type="text" class="class_name_input">
-			<label>Genre</label>
-			<input type="text" class="class_genre_input" placeholder= "Contemporary, Hip hop, etc.">
-			<label>Day and Time of class</label>
-			<input type="text" class="class_schedule_input" placeholder= "Tuesdays at 8PM">
-			<label> Difficulty</label>
-			<input type="text" class="difficulty_input" placeholder= "Intermediate">
-			<label> Choreographer Name</label>
-			<input type="text" class="choreographer_name_input">
-			<label> Studio Name</label>
-			<input type="text" class="studio_name_input">
-			<label> Studio street address</label>
-			<input type="text" class="street_name_input">
-			<label> City</label>
-			<input type="text" class="city_input">
-			<label> State</label>
-			<input type="text" class="state_name_input">
-			<label> Zipcode</label>
-			<input type="text" class="zipcode_input">
-			<label>Class Description</label>
-			<input type="text" class="class_schedule_input">
-			<button type= "submit">Create my class</button>
+			<form role= "form" action= "/makeClass" method= "POST" class= "create_class_form">
+				<label>Class Name</label>
+				<input type="text" name= "className" class="class_name_input">
+				<label>Genre</label>
+				<input type="text" name="genre" class="class_genre_input" placeholder= "Contemporary, Hip hop, etc.">
+				<label>Day and Time of class</label>
+				<input type="text" name="weeklyDayandTime" class="class_schedule_input" placeholder= "Tuesdays at 8PM">
+				<label> Difficulty</label>
+				<input type="text" name="difficulty" class="difficulty_input" placeholder= "Intermediate">
+				<label> Choreographer Name</label>
+				<input type="text" name="choreographer" class="choreographer_name_input">
+				<label> Studio Name</label>
+				<input type="text" name="studioName" class="studio_name_input">
+				<label> Studio street address</label>
+				<input type="text" name="street" class="street_name_input">
+				<label> City</label>
+				<input type="text" name="city" class="city_input">
+				<label> State</label>
+				<input type="text" name="state" class="state_name_input">
+				<label> Zipcode</label>
+				<input type="text" name="zipcode" class="zipcode_input">
+				<label>Class Description</label>
+				<input type="text" name="description" class="class_schedule_input">
+				<button type= "submit" class= "create_class_button">Create my class</button>
+				<div class= "feedback_section"> 
+				</div>
 			</form>
 		</section>
 
 	</main>
 
 	<script type = 'text/javascript' src='index.js'></script>
-
-
 	<script type="text/javascript" src= '../app.js'></script>
 </body>
 </html>

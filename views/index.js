@@ -4,16 +4,6 @@ function handleLoginButton() {
 	});
 }
 
-/*function handleSignUpLink() {
-		$('.nav').on('click', '.sign_up_link', function(event) {
-		event.preventDefault();
-		showSignUpPage();
-		hideLandingPage();
-		hideResultsPage()
-		hideLoginPage();
-	})
-}*/
-
 function handleNavLoginButton() {
 	$('.nav').on('click', '.login_link', function(event) {
 		event.preventDefault();

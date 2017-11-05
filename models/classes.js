@@ -11,7 +11,7 @@ const classSchema = mongoose.Schema({
 		required:true,
 	},
 	difficulty: {type: String},
-    choreographer: {type: String}
+    choreographer: {type: String},
     studio: {
     	name: {type:String},
     	address: {
@@ -20,14 +20,14 @@ const classSchema = mongoose.Schema({
 				state: {type:String},
 				zipcode: {type:String}
 			}
-    	}
+    	},
     weeklyDayandTime: {
 		type:String,
 		required: true,
 	},
-	dateCreated: {type: Date, default: Date.now}
+	dateCreated: {type: Date, default: Date.now},
 	description: {type:String},
-	currentUsers: [String],
+	currentStudents: [String],
 	currentVideos: [String]
 	})
 
@@ -46,11 +46,11 @@ classSchema.methods.apiRepr = function() {
         weeklyDayandTime: this. weeklyDayandTime,
         dateCreated: this.dateCreated,
         description: this.description,
-        currentUsers: this.currentUsers,
+        currentStudents: this.currentStudents,
         currentVideos: this.currentVideos
     };
 };
 
-const Class = mongoose.model('Class', ClassSchema);
+const Class = mongoose.model('Class', classSchema);
 
 module.exports = {Class};
