@@ -109,12 +109,9 @@ function isLoggedIn(req,res,next) {
 }*/
 
 router.post("/makeClass",(req,res) => {
-	/*console.log(req.body);*/
 	const requiredFields = ["className", "genre", "weeklyDayandTime", "difficulty", "choreographer"];
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
-		console.log(req.body[field]);
-		console.log(req.body);
 		if(req.body[field] === undefined || req.body[field] === '') {
 			const message = `Missing \`${field}\` in request body`
 			console.log(message);

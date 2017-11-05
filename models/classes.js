@@ -32,8 +32,8 @@ const classSchema = mongoose.Schema({
 	})
 
 classSchema.virtual('addressString').get(function() {
-  return `${this.address.street} ${this.address.city}, 
-  ${this.address.state} ${this.address.zipcode}`.trim()});
+  return `${this.studio.address.street} ${this.studio.address.city}, 
+  ${this.studio.address.state} ${this.studio.address.zipcode}`.trim()});
 
 classSchema.methods.apiRepr = function() {
     return {
