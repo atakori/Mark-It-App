@@ -49,64 +49,6 @@ function isLoggedIn(req,res,next) {
 	res.redirect("/login")
 	console.log(req.isAuthenticated())
 }
-/*const classSchema = mongoose.Schema({
-	className: {
-		type:String,
-		required: true,
-	},
-	genre: {
-		type:String,
-		required:true,
-	},
-	difficulty: {type: String},
-    choreographer: {type: String}
-    studio: {
-    	name: {type:String},
-    	address: {
-				street: {type:String},
-				city: {type:String} ,
-				state: {type:String},
-				zipcode: {type:String}
-			}
-    	}
-    weeklyDayandTime: {
-		type:String,
-		required: true,
-	},
-	dateCreated: {type: Date, default: Date.now}
-	description: {type:String},
-	currentUsers: [String],
-	currentVideos: [String]
-	})*/
-/*router.post("/makeClass",function (req,res) {
-	const requiredFields = ["className", "genre", "difficulty", "choreographer", "weeklyDayandTime"];
-	console.log(req.body);
-	for (let i=0; i<requiredFields.length; i++) {
-		const field = requiredFields[i];
-    	if (!(field in req.body)) {
-     	 const message = `Missing \`${field}\` in request body`;
-     	 console.error(message);
-     	 return res.status(400).send(message);
-		}*/
-/* Class
-    .create({
-      className: req.body.className,
-      genre: req.body.genre,
-      difficulty: req.body.difficulty,
-      choreographer: req.body.choreographer,
-      address: req.body.address,
-      weeklyDayandTime: req.body.weeklyDayandTime,
-      description: req.body.description
-  })
-    .then(
-      newclass => res.status(201).json(newclass.apiRepr()))
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({message: 'Internal server error'});
-    });*/
-/*	}
-
-}*/
 
 router.post("/makeClass",(req,res) => {
 	const requiredFields = ["className", "genre", "weeklyDayandTime", "difficulty", "choreographer"];
@@ -136,10 +78,41 @@ router.post("/makeClass",(req,res) => {
     });
 })
 
-function displayError(field) {
-	$('.feedback_section').html(`<p> Please fill out 
-		the missing \`${field}\` field;`)
+// search classes GET request
+
+/*function getUserSearchterm() {
+	let searchterm = $('.search_term').val();
+	//this is the value I will be using to pass in as a parameter
+	//for mongoose once the DB it is created
+	// .find{choreographer: ${searchterm}} to filter out the database
+	//with classes
 }
+
+function displaySearchResults(data) {
+	for (index in data.classes) {
+		$('.search_results').html(`<li class = "class_name"> ${data.className} |
+			 ${data.genre} | ${data.studio.name} | ${data.weeklyDayandTime}
+			</li>`)
+	}
+}*/
+
+router.get("/searchresults", (req, res) => {
+	Class
+	.find({choreographer: req.query.choreographer})
+	.then(classes => {
+		res.json({
+			classes: classes.map((foundclass) => foundclass.apiRepr())
+		});
+	})
+	.then(data => {
+		for (index in data.classes) {
+		$('.class_results_page').html(`<li class = "class_name"> ${data.className} |
+			 ${data.genre} | ${data.studio.name} | ${data.weeklyDayandTime}
+			</li>`)
+		}
+	})
+	.then(res.render("search"));
+})
 
 /*function displayError() {
 	$('.create_class_form').on('click', '.create_class_button', function(e) {

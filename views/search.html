@@ -27,9 +27,10 @@
 	</header>
 	<main role= "main">
 		<section class= "class_results_page"> 
-			<form class= "class_results_form">
+			<form>
+				<!-- role= "form" action= "/searchresults" method= "GET" class= "class_results_form" -->
 				<label> Search for Classes</label>
-				<input type="text" class="search_term" placeholder= "Choreographer">
+				<input type="text" name= "choreographer" class="search_term" placeholder= "Choreographer">
 				<button type="submit" class= "search_button"> Search</button>
 			</form>
 			<div class= "search_results">

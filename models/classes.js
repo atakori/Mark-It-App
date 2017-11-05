@@ -38,10 +38,11 @@ classSchema.virtual('addressString').get(function() {
 classSchema.methods.apiRepr = function() {
     return {
     	id:this._id,
-        className: this.username,
+        className: this.className,
         genre: this.genre,
         difficulty: this.difficulty,
-        choreographer: this.genre,
+        choreographer: this.choreographer,
+        studioName: this.studio.name,
         studioAddress: this.addressString,
         weeklyDayandTime: this. weeklyDayandTime,
         dateCreated: this.dateCreated,

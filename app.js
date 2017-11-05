@@ -1,3 +1,5 @@
+const {PORT, DATABASE_URL} = require('./config');
+
 let MOCK_CLASSES = {
 	"classes:": [
 		{
@@ -133,6 +135,7 @@ let MOCK_USERS = {
 
 function getClasses(callback) {
 	setTimeout(function() { callback(MOCK_CLASSES)}, 100);
+	$.getJSON(DATABASE_URL, callback)
 }
 
 function displayClasses(data) {
