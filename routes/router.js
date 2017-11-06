@@ -35,6 +35,9 @@ router.get("/makeClass", isLoggedIn, function (req, res) {
 	res.render("createClass");
 })
 
+router.get("/classPage", function(req,res) {
+	res.render("classPage");
+})
 
 router.get("/logout", function(req,res) {
 	req.logout();
@@ -106,11 +109,14 @@ router.get("/searchresults", (req, res) => {
 	});
 })
 
-/*function displayError() {
-	$('.create_class_form').on('click', '.create_class_button', function(e) {
-		if ()
+router.get("/classdata", (req,res) => {
+	Class.
+	find({className: req.query.className})
+	.then(matchingclass => {
+			res.json({
+				matchingClasses: matchingClasses.map((matchingClass) => matchingclass.apiRepr())
+		})
 	})
-	if ($('.class_name_input').val()
-}*/
+})
 
 module.exports = router;

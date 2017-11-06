@@ -163,16 +163,22 @@ function getClasses(choreographer) {
 
 function displaySearchResults(data) {
 	$('.search_results').empty();
+	console.log(data);
 	if (data.classes.length === 0) {
 		$('.search_results').html(`<h2 class= "no_results_message"> Sorry, there are no matching choreographers found. Try another person! </h2>`)
 	} else {
 	for (let i=0; i<data.classes.length; i++) {
-		$('.search_results').append(`<li class = "class_name"> ${data.classes[i].className} |
-			 ${data.classes[i].genre} | ${data.classes[i].studioName} | ${data.classes[i].weeklyDayandTime}
-			</li>`)
+		$('.search_results').append(`<li class = "class_info"> ${data.classes[i].className} |
+			 ${data.classes[i].genre} | ${data.classes[i].studioName} | 
+			 ${data.classes[i].weeklyDayandTime} </li> 
+			 <button class= "class_button"> Got to 
+			 <span class= "class_name"> 
+			 ${data.classes[i].className} page</span></Button>`)
 		}	
 	}
 }
+
+
 
 function getAndDisplaySearchResults() {
 	getClasses(displaySearchResults);
