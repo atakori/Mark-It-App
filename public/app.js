@@ -1,5 +1,3 @@
-const {PORT, DATABASE_URL} = require('./config');
-
 let MOCK_CLASSES = {
 	"classes:": [
 		{
@@ -133,11 +131,6 @@ let MOCK_USERS = {
 }
 //adding jquery to create classes page
 
-function getClasses(callback) {
-	setTimeout(function() { callback(MOCK_CLASSES)}, 100);
-	$.getJSON(DATABASE_URL, callback)
-}
-
 function displayClasses(data) {
 	for (index in data.classes) {
 		$('.class_results_page').html(`<li class = "class_name"> ${data.className} |
@@ -151,25 +144,41 @@ function getAndDisplayClasses () {
 }
 
 //RESULTS SECTION
-function getUserSearchterm() {
-	let searchterm = $('.search_term').val();
-	//this is the value I will be using to pass in as a parameter
-	//for mongoose once the DB it is created
-	// .find{choreographer: ${searchterm}} to filter out the database
-	//with classes
+/*function handleSearchClassesButton() {
+	$('.class_results_form').on('click', '.search_button',function(e){
+	  e.preventDefault();
+	  const choreographer = $(e.target).find('input[name=choreographer]').val()
+	  getClasses(choreographer);
+	});
+}*/
+
+function getClasses(choreographer) {
+	let url = `/searchresults?choreographer=${choreographer}`;
+  	$.getJSON(url).then( data => {
+  		displaySearchResults(data);
+    // you'll see your object with a `classes:` property
+    // instead of console-logging, you can call a render function here
+  });
 }
 
 function displaySearchResults(data) {
-	for (index in data.classes) {
-		$('.search_results').html(`<li class = "class_name"> ${data.className} |
-			 ${data.genre} | ${data.studio.name} | ${data.weeklyDayandTime}
+	$('.search_results').empty();
+	if (data.classes.length === 0) {
+		$('.search_results').html(`<h2 class= "no_results_message"> Sorry, there are no matching choreographers found. Try another person! </h2>`)
+	} else {
+	for (let i=0; i<data.classes.length; i++) {
+		$('.search_results').append(`<li class = "class_name"> ${data.classes[i].className} |
+			 ${data.classes[i].genre} | ${data.classes[i].studioName} | ${data.classes[i].weeklyDayandTime}
 			</li>`)
+		}	
 	}
 }
 
 function getAndDisplaySearchResults() {
 	getClasses(displaySearchResults);
 }
+
+
 
 //MY CLASSES SECTION
 function getUserCurrentClasses(callback) {
@@ -237,3 +246,4 @@ $(getandDisplayCurrentUserClasses());
 $(getAndDisplaySearchResults());
 $(getAndDisplayClassVideos());
 $(getAndDisplayDanceVideo());
+$(handleSearchClassesButton());

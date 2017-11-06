@@ -103,15 +103,7 @@ router.get("/searchresults", (req, res) => {
 		res.json({
 			classes: classes.map((foundclass) => foundclass.apiRepr())
 		});
-	})
-	.then(data => {
-		for (index in data.classes) {
-		$('.class_results_page').html(`<li class = "class_name"> ${data.className} |
-			 ${data.genre} | ${data.studio.name} | ${data.weeklyDayandTime}
-			</li>`)
-		}
-	})
-	.then(res.render("search"));
+	});
 })
 
 /*function displayError() {
