@@ -109,14 +109,14 @@ router.get("/searchresults", (req, res) => {
 	});
 })
 
-router.get("/classdata", (req,res) => {
-	Class.
-	find({className: req.query.className})
-	.then(matchingclass => {
+router.get("/classdata", (req, res) => {
+	Class
+	.find({className: req.query.className})
+	.then(matchingClasses => {
 			res.json({
-				matchingClasses: matchingClasses.map((matchingClass) => matchingclass.apiRepr())
-		})
-	})
+				matchingClasses: matchingClasses.map((matchingClass) => matchingClass.apiRepr())
+		});
+	});
 })
 
 module.exports = router;

@@ -20,5 +20,16 @@ function handleSearchClassesButton() {
 	});
 }
 
+function handleGoToClassPageButton() {
+	$('.search_results').on('click', '.class_button', function(e) {
+		e.preventDefault();
+		console.log("WORKING");
+		let className = $(this).find('.class_name').text();
+		getPageInformation(className);
+		//this should be substitued for the class ID in the future
+	})
+}
+
 $(handleSearchClassesButton());
+$(handleGoToClassPageButton());
 $(handleTestButton());
