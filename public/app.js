@@ -156,8 +156,8 @@ function getClasses(choreographer) {
 	let url = `/searchresults?choreographer=${choreographer}`;
   	$.getJSON(url).then( data => {
   		displaySearchResults(data);
-    // you'll see your object with a `classes:` property
-    // instead of console-logging, you can call a render function here
+  	//makes a call to the server to grab the classes with a matching
+  	//choreographer name that is entered by the user
   });
 }
 
