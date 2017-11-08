@@ -14,7 +14,7 @@ function handleTestButton() {
 function handleSearchClassesButton() {
 	$('.class_results_form').on('click', '.search_button',function(e){
 	  e.preventDefault();
-	  /*const choreographer = $(e.target).find('input[name=choreographer]').val()*/
+	  const choreographer = $(e.target).find('input[name=choreographer]').val()
 	  const choreographer = $('.search_term').val();
 	  getClasses(choreographer);
 	});

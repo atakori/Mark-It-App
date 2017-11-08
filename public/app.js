@@ -40,6 +40,7 @@ function displaySearchResults(data) {
 		$('.search_results').append(`<li class = "class_info"> ${data.classes[i].className} |
 			 ${data.classes[i].genre} | ${data.classes[i].studioName} | 
 			 ${data.classes[i].weeklyDayandTime} </li> 
+			 <a href= "/classPage/${data.classes[i].className}"> Go to page</a>
 			 <button class= "class_button"> Go to 
 			 <span class= "class_name">${data.classes[i].className}</span> page</Button>`)
 		}	
@@ -72,7 +73,9 @@ function getAndDisplaySearchResults() {
 	getClasses(displaySearchResults);
 }
 
-
+function loadClassInformation(classdata) {
+			$('.class-title').html(`<h1> IT WORKED!</h1>`);
+}
 
 //MY CLASSES SECTION
 function getUserCurrentClasses(callback) {
@@ -140,3 +143,4 @@ $(getandDisplayCurrentUserClasses());
 $(getAndDisplaySearchResults());
 $(getAndDisplayClassVideos());
 $(getAndDisplayDanceVideo());
+$(loadClassInformation(currentClassData));

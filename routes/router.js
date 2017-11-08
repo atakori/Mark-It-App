@@ -35,8 +35,19 @@ router.get("/makeClass", isLoggedIn, function (req, res) {
 	res.render("createClass");
 })
 
-router.get("/classPage", function(req,res) {
+/*router.get("/classPage", function(req,res) {
 	res.render("classPage");
+})*/
+
+router.get("/class/:name", function(req,res) {
+	console.log(req.params);
+	Class
+	.find({className: req.params.name})
+	.then(random => {
+		console.log(random);
+		res.render("classPage", {random: random})
+	});
+
 })
 
 router.get("/logout", function(req,res) {
@@ -103,6 +114,7 @@ router.get("/searchresults", (req, res) => {
 	Class
 	.find({choreographer: req.query.choreographer})
 	.then(classes => {
+		console.log(res.json);
 		res.json({
 			classes: classes.map((foundclass) => foundclass.apiRepr())
 		});
