@@ -40,9 +40,9 @@ function displaySearchResults(data) {
 		$('.search_results').append(`<li class = "class_info"> ${data.classes[i].className} |
 			 ${data.classes[i].genre} | ${data.classes[i].studioName} | 
 			 ${data.classes[i].weeklyDayandTime} </li> 
-			 <a href= "/classPage/${data.classes[i].className}"> Go to page</a>
-			 <button class= "class_button"> Go to 
-			 <span class= "class_name">${data.classes[i].className}</span> page</Button>`)
+			 <a href= "/class/${data.classes[i].className}"> Go to page</a>
+			 <a href = "/class/${data.classes[i].className}"><button class= "class_button"> Go to 
+			 <span class= "class_name">${data.classes[i].className}</span> page</Button></a>`)
 		}	
 	}
 }
@@ -51,7 +51,6 @@ function displaySearchResults(data) {
 function getPageInformation(className) {
 	let url = `/classdata?className=${className}`;
 	$.getJSON(url).then(data => {
-		currentClassData = data;
   		displayClassPage(currentClassData);
   	//makes a call to the server to grab the classes with a matching
   	//choreographer name that is entered by the user
@@ -65,17 +64,14 @@ function displayClassPage(classdata) {
 	//re-rendering of the page
 }
 
+/*The above functions have been replaced
+  I am keeping them in case I need them to render other page
+  info in the future*/
+
 function displayPageInformation(data) {
-	$('.class-title').html(`<h1> IT WORKED!</h1>`);
+	$('.class-title').html(`<h1> displayPageInformation is still being called!</h1>`);
 }
 
-function getAndDisplaySearchResults() {
-	getClasses(displaySearchResults);
-}
-
-function loadClassInformation(classdata) {
-			$('.class-title').html(`<h1> IT WORKED!</h1>`);
-}
 
 //MY CLASSES SECTION
 function getUserCurrentClasses(callback) {
@@ -140,7 +136,5 @@ function getAndDisplayDanceVideo() {
 
 $(getAndDisplayClasses());
 $(getandDisplayCurrentUserClasses());
-$(getAndDisplaySearchResults());
 $(getAndDisplayClassVideos());
 $(getAndDisplayDanceVideo());
-$(loadClassInformation(currentClassData));

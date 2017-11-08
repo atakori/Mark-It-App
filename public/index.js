@@ -14,22 +14,20 @@ function handleTestButton() {
 function handleSearchClassesButton() {
 	$('.class_results_form').on('click', '.search_button',function(e){
 	  e.preventDefault();
-	  const choreographer = $(e.target).find('input[name=choreographer]').val()
 	  const choreographer = $('.search_term').val();
 	  getClasses(choreographer);
 	});
 }
 
-function handleGoToClassPageButton() {
+/*function handleGoToClassPageButton() {
 	$('.search_results').on('click', '.class_button', function(e) {
 		e.preventDefault();
 		console.log("WORKING");
 		let className = $(this).find('.class_name').text();
 		getPageInformation(className);
 		//this should be substitued for the class ID in the future
-	})
-}
+/*	})*/
+/*}*/
 
 $(handleSearchClassesButton());
-$(handleGoToClassPageButton());
 $(handleTestButton());

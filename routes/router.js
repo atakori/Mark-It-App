@@ -24,7 +24,7 @@ router.get("/signup", function (req,res) {
 	res.render("signup");
 })
 
-router.get("/upload", isLoggedIn, function (req, res) {
+router.get("/class/:name/upload", isLoggedIn, function (req, res) {
 	res.render("uploadVideo");
 })
 
