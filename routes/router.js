@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const {Class} = require('../models/classes');
+const cloudinary = require('cloudinary');
 
 const router = express.Router();
 

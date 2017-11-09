@@ -35,15 +35,19 @@
 			<label> Featured Dancers</label>
 			<input type="text" class="video_title_input" placeholder= "John Doe, Beyonce...">
 			<label> Choose File </label>
-			<input name= "userVideo" type="file" class="video_file">
+			<input name= "file" type="file" class="cloudinary-fileupload" data-cloudinary-field="video_id">
+			<p class="progress_bar"></p>
 			</form>
 		</section>
 
 	</main>
+	<script src='/../jquery.ui.widget.js' type='text/javascript'></script>
+	<script src='/../jquery.iframe-transport.js' type='text/javascript'></script>
+	<script src='/../jquery.fileupload.js' type='text/javascript'></script>
+	<script src='/../jquery.cloudinary.js' type='text/javascript'></script>
 
 	<script type = 'text/javascript' src='/../index.js'></script>
-
-
 	<script type="text/javascript" src= '/../app.js'></script>
+	<script type="text/javascript" src= '/../fileupload.js'></script>
 </body>
 </html>
