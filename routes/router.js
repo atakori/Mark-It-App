@@ -3,11 +3,20 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const {Class} = require('../models/classes');
 const cloudinary = require('cloudinary');
+const upload = require('express-fileupload');
+
+cloudinary.config({
+	cloud_name: "mark-it-cloud",
+	api_key: '275687273372991',
+	api_secret: "8mO_7-rlQd0SPy_GHej1pCeiHFM"
+
+})
 
 const router = express.Router();
 
 const jsonParser = bodyParser.json();
 router.use(bodyParser.urlencoded({extended: true}));
+router.use(upload());
 
 router.get("/", function (req,res) {
     res.render("index");
@@ -34,6 +43,31 @@ router.get("/searchclasses", isLoggedIn, function (req, res) {
 })
 router.get("/makeClass", isLoggedIn, function (req, res) {
 	res.render("createClass");
+})
+
+router.post("/upload", function (req, res) {
+	if(req.files) {
+		let file = req.files.filename;
+		let filename = file.name;
+		file.mv('./uploads/' +filename, function(err) {
+			if (err) {
+				console.log(err)
+				res.send("error occurred")
+			} else {
+				console.log("video loaded to server!")
+			}
+		})
+		let filepath= './uploads/' +filename
+			cloudinary.uploader.upload_large(filepath, 
+            function(result) {console.log(result); }, 
+            { resource_type: "video" });
+            console.log('posting to /upload');
+	}
+	/*cloudinary.uploader.upload_large(req.files, 
+            function(result) {console.log(result); }, 
+            { resource_type: "video" });
+            console.log('posting to /upload');
+*/
 })
 
 /*router.get("/classPage", function(req,res) {

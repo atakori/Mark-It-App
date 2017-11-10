@@ -1,7 +1,4 @@
-.progress_bar {
-	background-color: red;
-}
-
-.progress_bar_border {
-	border: 1px black solid;
+.bar {
+    height: 18px;
+    background: green;
 }
