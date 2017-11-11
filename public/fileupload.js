@@ -51,9 +51,23 @@ function showUploader(){
 function handleVideoInfoButton() {
 	$('.upload_form').on('click', '.post_video_info', function(e) {
 		e.preventDefault();
+		let videoTitle = $('.video_title_input').val();
+		let classDate = $('.class_date_input').val();
+		let dancers =  $('.video_dancers_input').val();
+		let className = $(location).attr('pathname').split("/")
+			className = className[2].split("%20");
+			className = className.join(' ');
+		console.log(className);
 	})
 }
 
+/*<p> Now just give a few more details...</p>					<label>Video Title</label>
+			<input type="text" class="video_title_input" placeholder= "New Rules -- Dua Lipa">
+				<label> Class Date:</label>
+				<input type="text" class="class_date_input" placeholder= "MM/DD/YYYY">				<label> Featured Dancers</label>
+			<input type="text" class="video_title_input" placeholder= "John Doe, Beyonce...">
+			<button class= "post_video_info"> Upload new Video! </button>
+*/
 /*function handleVideoUpload (){
 $('.video-info').append($.cloudinary.unsigned_upload_tag("o8uzrarh", 
   { cloud_name: 'mark-it-cloud' }).bind('cloudinaryprogress', function(e, data) { 

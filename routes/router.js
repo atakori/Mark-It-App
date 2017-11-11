@@ -75,8 +75,10 @@ router.post("/upload", function (req, res) {
 	}
 })
 
-router.post("/uploadVideo", function (req,res) {
+router.get("/upload", function (req,res) {
 	console.log(req.body)
+	res.send(req.query);
+
 })
 /*router.get("/classPage", function(req,res) {
 	res.render("classPage");
@@ -86,9 +88,9 @@ router.get("/class/:name", function(req,res) {
 	console.log(req.params);
 	Class
 	.find({className: req.params.name})
-	.then(random => {
-		console.log(random);
-		res.render("classPage", {random: random})
+	.then(classJSON => {
+		console.log(classJSON);
+		res.render("classPage", {classJSON: classJSON})
 	});
 
 })

@@ -28,15 +28,15 @@
 	</header>
 	<main role= "main">
 		<section class= "class_page_section">
-			<h1 class= "class-header"> Welcome to <span class= class_title><%=random[0].className%></span></h1>
+			<h1 class= "class-header"> Welcome to <span class= class_title><%=classJSON[0].className%></span></h1>
 		<section>
-			<h2 class= "class_subtitle"> <%=random[0].description%> </h2>
+			<h2 class= "class_subtitle"> <%=classJSON[0].description%> </h2>
 		</section>
 		
 		<section class= "class_videos_list"> 
 			<h2> Class Videos</h2>
 		</section>
-			<a href= "/class/<%=random[0].className%>/upload"> <button class= "upload_video_button"> Upload new class video</button></a>
+			<a href= "/class/<%=classJSON[0].className%>/upload"> <button class= "upload_video_button"> Upload new class video</button></a>
 		</section>
 	</main>
 
