@@ -4,6 +4,7 @@ const passport = require('passport');
 const {Class} = require('../models/classes');
 const cloudinary = require('cloudinary');
 const upload = require('express-fileupload');
+const fs = require('fs');
 
 cloudinary.config({
 	cloud_name: "mark-it-cloud",
@@ -46,6 +47,7 @@ router.get("/makeClass", isLoggedIn, function (req, res) {
 })
 
 router.post("/upload", function (req, res) {
+	console.log(req.body);
 	if(req.files) {
 		let file = req.files.filename;
 		let filename = file.name;
@@ -59,17 +61,23 @@ router.post("/upload", function (req, res) {
 		})
 		let filepath= './uploads/' +filename
 			cloudinary.uploader.upload_large(filepath, 
-            function(result) {console.log(result); }, 
-            { resource_type: "video" });
-            console.log('posting to /upload');
+            function(result) {
+            	res.json(result);
+            	console.log(result)
+            	console.log('video uploaded to Cloudinary')
+            	if(result.public_id) {
+            		fs.unlink('./uploads/' +filename)
+            		//delete the file from the server
+            		//after cloud upload is complete
+            	}
+        }, 
+            {resource_type: "video"});
 	}
-	/*cloudinary.uploader.upload_large(req.files, 
-            function(result) {console.log(result); }, 
-            { resource_type: "video" });
-            console.log('posting to /upload');
-*/
 })
 
+router.post("/uploadVideo", function (req,res) {
+	console.log(req.body)
+})
 /*router.get("/classPage", function(req,res) {
 	res.render("classPage");
 })*/

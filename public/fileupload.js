@@ -1,23 +1,58 @@
 function handleVideoUpload() {
 	$('#fileupload').fileupload({
-        dataType: 'json',
+		dataType: 'json',
+        add: function (e, data) {
+            data.context = $('<button/>').text('Upload')
+                .appendTo(document.body)
+                .click(function () {
+                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                    data.submit();
+                });
+        },
         done: function (e, data) {
-    		console.log('uploading to server');
-            $.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo('body');
-            });
+        	let result= data.result;
+        	console.log(result);
+            data.context.text('');
+            console.log('video uploaded to cloudinary!');
+       		//show user the results and input fields
+       		//change upload file to finalizing
+       		hideUploader();
+       		showVideoInfo();
+
         },
         progressall: function (e, data) {
         let progress = parseInt(data.loaded / data.total * 100, 10);
+        console.log("uploading file to server");
         $('#progress .bar').css(
             'width',
             progress + '%'
         );
         console.log(progress + '%')
     }
-});
+    });
 }
 
+function hideVideoInfo() {
+	$('.video-info').hide()
+}
+
+function showVideoInfo() {
+	$('.video-info').show()
+}
+
+function hideUploader() {
+	$('.video_uploader').hide();
+}
+
+function showUploader(){
+	$('.video_uploader').show();
+}
+
+function handleVideoInfoButton() {
+	$('.upload_form').on('click', '.post_video_info', function(e) {
+		e.preventDefault();
+	})
+}
 
 /*function handleVideoUpload (){
 $('.video-info').append($.cloudinary.unsigned_upload_tag("o8uzrarh", 
@@ -58,3 +93,5 @@ $.fn.widthPerc = function(){
 */
 /*$(handleUserSelectedVideo());*/
 $(handleVideoUpload());
+$(handleVideoInfoButton());
+hideVideoInfo();

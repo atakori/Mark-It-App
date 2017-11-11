@@ -43,7 +43,7 @@ describe('Testing ROUTES endpoints', function() {
 	})
 	it('should return HTML and 200 status code for the uploadVideo.html page', function() {
 		return chai.request(app)
-		.get('/upload')
+		.get('/class/:name/upload')
 		.then(function(res) {
 			res.should.have.status(200);
 			res.should.be.html;

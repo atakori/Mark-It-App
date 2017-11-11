@@ -29,19 +29,22 @@
 			<h1> Upload new video</h1>
 			<form class= "upload_form" action= "/upload" method= "POST" enctype="multipart/form-data">
 				<div class= "video-info">
+					<p> Now just give a few more details...</p>
 					<label>Video Title</label>
 					<input type="text" class="video_title_input" placeholder= "New Rules -- Dua Lipa">
 					<label> Class Date:</label>
 					<input type="text" class="class_date_input" placeholder= "MM/DD/YYYY">
 					<label> Featured Dancers</label>
 					<input type="text" class="video_title_input" placeholder= "John Doe, Beyonce...">
+					<button class= "post_video_info"> Upload new Video! </button>
+				</div>
+				<div class= "video_uploader">
 					<label> Choose File </label>
-					<input id= "fileupload" type="file" name="filename" >
+						<input id= "fileupload" type="file" name="filename" >
+					<div id="progress">
+   						 <div class="bar" style="width: 0%;"></div>
+					</div>
 				</div>
-				<div id="progress">
-   					 <div class="bar" style="width: 0%;"></div>
-				</div>
-			<button type= "submit"> Upload new Video! </button>
 			</form>
 
 		</section>
