@@ -54,12 +54,26 @@ function handleVideoInfoButton() {
 		let videoTitle = $('.video_title_input').val();
 		let classDate = $('.class_date_input').val();
 		let dancers =  $('.video_dancers_input').val();
-		let className = $(location).attr('pathname').split("/")
+		let className = $(location).attr('pathname').split("/");
 			className = className[2].split("%20");
 			className = className.join(' ');
-		console.log(className);
+		postVideoInfotoServer(className, videoTitle, classDate, dancers);
 	})
 }
+
+function postVideoInfotoServer(className, videoTitle, classDate, dancers) {
+	let url = `/class/${className}/upload?videoTitle=${videoTitle}&classDate=${classDate}&dancers=${dancers}`;
+	$.post(url, function(data) {
+		console.log(data)
+	})
+	.done(function() {
+		alert("the video was added!");
+	})
+}
+/*function getClasses(choreographer) {
+	let url = `/searchresults?choreographer=${choreographer}`;
+  	$.getJSON(url).then( data => {
+  		displaySearchResults(data);*/
 
 /*<p> Now just give a few more details...</p>					<label>Video Title</label>
 			<input type="text" class="video_title_input" placeholder= "New Rules -- Dua Lipa">

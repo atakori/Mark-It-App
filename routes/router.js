@@ -75,10 +75,10 @@ router.post("/upload", function (req, res) {
 	}
 })
 
-router.get("/upload", function (req,res) {
-	console.log(req.body)
-	res.send(req.query);
-
+router.post("/class/:name/upload", function (req,res) {
+	console.log(req.params.name);
+	console.log(req.query);
+	res.status(200).send(req.query);
 })
 /*router.get("/classPage", function(req,res) {
 	res.render("classPage");
