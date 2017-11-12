@@ -72,7 +72,8 @@ function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_
 		console.log(data)
 	})
 	.done(function() {
-		alert("Nice, your video was added!");
+		$('.upload_video_page').html(`<h2> Video successfully uploaded! </h2>
+			<a href= "/class/${className}"><button class= "class_page_button"> Back to ${className} </button></a>`)
 	})
 }
 /*function getClasses(choreographer) {
