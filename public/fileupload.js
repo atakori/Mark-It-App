@@ -1,3 +1,6 @@
+let video_id;
+let video_url;
+
 function handleVideoUpload() {
 	$('#fileupload').fileupload({
 		dataType: 'json',
@@ -16,6 +19,8 @@ function handleVideoUpload() {
             console.log('video uploaded to cloudinary!');
        		//show user the results and input fields
        		//change upload file to finalizing
+       		video_id = result.public_id;
+       		video_url = result.secure_url;
        		hideUploader();
        		showVideoInfo();
 
@@ -57,17 +62,17 @@ function handleVideoInfoButton() {
 		let className = $(location).attr('pathname').split("/");
 			className = className[2].split("%20");
 			className = className.join(' ');
-		postVideoInfotoServer(className, videoTitle, classDate, dancers);
+		postVideoInfotoServer(className, videoTitle, classDate, dancers, video_id, video_url);
 	})
 }
 
-function postVideoInfotoServer(className, videoTitle, classDate, dancers) {
-	let url = `/class/${className}/upload?videoTitle=${videoTitle}&classDate=${classDate}&dancers=${dancers}`;
+function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_id, video_url) {
+	let url = `/class/${className}/upload?videoTitle=${videoTitle}&classDate=${classDate}&dancers=${dancers}&video_id=${video_id}&video_url=${video_url}`;
 	$.post(url, function(data) {
 		console.log(data)
 	})
 	.done(function() {
-		alert("the video was added!");
+		alert("Nice, your video was added!");
 	})
 }
 /*function getClasses(choreographer) {

@@ -76,16 +76,20 @@ router.post("/upload", function (req, res) {
 })
 
 router.post("/class/:name/upload", function (req,res) {
-	console.log(req.params.name);
-	console.log(req.query);
-	res.status(200).send(req.query);
+	console.log(req.query)
+	Class
+	.findOne({className: req.params.name})
+	.update({$push: {videos: req.query}})
+	.then(videoObject => {
+		console.log('video object successfully added to class');
+		console.log(videoObject);
+		res.status(200).send(videoObject);
+	})
 })
-/*router.get("/classPage", function(req,res) {
-	res.render("classPage");
-})*/
+//add this video object to the specific class's 
+//list of videos
 
 router.get("/class/:name", function(req,res) {
-	console.log(req.params);
 	Class
 	.find({className: req.params.name})
 	.then(classJSON => {

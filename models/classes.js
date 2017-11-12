@@ -28,7 +28,13 @@ const classSchema = mongoose.Schema({
 	dateCreated: {type: Date, default: Date.now},
 	description: {type:String},
 	currentStudents: [String],
-	currentVideos: [String]
+	videos: [{
+		videoTitle: {type: String},
+		classDate: {type:String},
+		dancers: {type:String},
+		video_id: {type:String},
+		video_url: {type:String}
+	}]
 	})
 
 classSchema.virtual('addressString').get(function() {
