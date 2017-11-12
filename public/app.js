@@ -64,10 +64,6 @@ function displayClassPage(classdata) {
 	//re-rendering of the page
 }
 
-/*The above functions have been replaced
-  I am keeping them in case I need them to render other page
-  info in the future*/
-
 function displayPageInformation(data) {
 	$('.class-title').html(`<h1> displayPageInformation is still being called!</h1>`);
 }

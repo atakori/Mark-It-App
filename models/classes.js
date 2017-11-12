@@ -27,7 +27,7 @@ const classSchema = mongoose.Schema({
 	},
 	dateCreated: {type: Date, default: Date.now},
 	description: {type:String},
-	currentStudents: [String],
+	currentUsers: [String],
 	videos: [{
 		videoTitle: {type: String},
 		classDate: {type:String},
@@ -53,8 +53,8 @@ classSchema.methods.apiRepr = function() {
         weeklyDayandTime: this. weeklyDayandTime,
         dateCreated: this.dateCreated,
         description: this.description,
-        currentStudents: this.currentStudents,
-        currentVideos: this.currentVideos
+        currentUsers: this.currentUsers,
+        videos: this.currentVideos
     };
 };
 
