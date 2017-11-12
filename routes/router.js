@@ -129,9 +129,18 @@ router.post("/makeClass",(req,res) => {
       genre: req.body.genre,
       difficulty: req.body.difficulty,
       choreographer: req.body.choreographer,
-      address: req.body.address,
+      studio: {
+      	name: req.body.studioName,
+      	address: {
+      		street: req.body.street,
+      		city: req.body.city,
+      		state: req.body.state,
+      		zipcode: req.body.zipcode
+      	}
+      },
       weeklyDayandTime: req.body.weeklyDayandTime,
-      description: req.body.description
+      description: req.body.description,
+      videos: []
   })
     .then(
       newclass => res.status(201).json(newclass.apiRepr()))
