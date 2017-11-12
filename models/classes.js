@@ -54,7 +54,7 @@ classSchema.methods.apiRepr = function() {
         dateCreated: this.dateCreated,
         description: this.description,
         currentUsers: this.currentUsers,
-        videos: this.currentVideos
+        videos: this.videos
     };
 };
 
