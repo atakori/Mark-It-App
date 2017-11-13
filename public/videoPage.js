@@ -20,8 +20,10 @@ function displayVideoInformation(data) {
       controls preload="none" poster="https://res.cloudinary.com/mark-it-cloud/video/upload/${video_object.video_id}.jpeg"
       data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'> 
       <source src="${video_object.video_url}" type='video/mp4' /></video>`)
-			$('.video_info_section').html(`<h2> showing video Title!!! </h2>
-				<p class= "video_title">${video_object.videoTitle} </p>`);
+			$('.video_info_section').html(`<h2 class= "video_title"> ${video_object.videoTitle} </h2>
+				<p class= "video_date">Class Date: ${video_object.classDate} </p>
+				<p class= "video_dancers">Featured Dancers: ${video_object.dancers} </p>`);
+			$('.class_video_section').append(`<a href= "/class/${data.className}"><button> Back to class</button></a>`)
 		}
 	}
 }
