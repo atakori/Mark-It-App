@@ -104,6 +104,16 @@ router.post("/class/:name/upload", function (req,res) {
 //add this video object to the specific class's 
 //list of videos
 
+router.post("/class/:name/addUser", function (req,res) {
+	Class
+	.findOne({className: req.params.name})
+	.update({$push: {currentUsers: req.query.currentUser}})
+	.then(user => {
+		console.log('User successfully added to class!');
+		res.status(200).send(user)
+	})
+})
+
 router.get("/class/:name", function(req,res) {
 	Class
 	.find({className: req.params.name})
@@ -111,8 +121,8 @@ router.get("/class/:name", function(req,res) {
 		console.log(classJSON);
 		res.render("classPage", {classJSON: classJSON})
 	});
-
 })
+//returns the class data
 
 router.get("/logout", function(req,res) {
 	req.logout();

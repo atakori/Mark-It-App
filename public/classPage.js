@@ -53,16 +53,23 @@ function renderClassVideos(data, videos) {
 //if not, display a 'no video message'
 
 function checkStudentEnrollment(data) {
+	console.log(data.currentUsers[0]);
+	console.log(currentUser);
+	function userMatch(user) {
+		return  user === currentUser;
+	}
 	if(data.currentUsers.length === 0) {
 		renderAddClassButton(data);
 	}
 	for(let i=0; i<data.currentUsers.length; i++) {
-		if(data.currentUsers[i] === currentUser) {
+		if(data.currentUsers.find(userMatch)) {
 			return console.log('User currently enrolled in Class');
-		} 
+		} else {
 		renderAddClassButton(data);
+		}
 	}
 }
+
 //checks if the student is added to the course already
 //if not, the add Class button shows up on the page
 
@@ -70,6 +77,48 @@ function renderAddClassButton(userdata) {
 	$('.user_button').html(`<a href= "/api/${currentUser}/addUser">
 	 <button class= "add_class_button"> Add Class</button></a>`)
 }
+function handleAddClassButton() {
+	$('.class_page_header').on('click', '.add_class_button', function (e) {
+		e.preventDefault();
+		console.log('button hooked up');
+		let className = $(location).attr('pathname').split("/");
+			className = className[2].split("%20");
+			className = className.join(' ');
+		postUsernametoClass(className, currentUser)
+	})
+}
 
-getClassData();
-getUsername();
+function postUsernametoClass (className, currentUser) {
+	let url= `/class/${className}/addUser?currentUser=${currentUser}`;
+	$.post(url, function(data) {
+		console.log(data)
+	})
+	.done(function() {
+		getClassData()
+		console.log('User successfully enrolled');
+		renderAddedUsertoClassMessage();
+		//need to add $('.').html() to add visual feedback
+		//user they have been added!
+		//this will reload the page when completed!
+	})
+}
+
+function renderAddedUsertoClassMessage() {
+	$('.user_button').html(`<p class= "user_created_message">
+			You have successfully been added to the class!</p>`)
+}
+
+/*function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_id, video_url) {
+	let url = `/class/${className}/upload?videoTitle=${videoTitle}&classDate=${classDate}&dancers=${dancers}&video_id=${video_id}&video_url=${video_url}`;
+	$.post(url, function(data) {
+		console.log(data)
+	})
+	.done(function() {
+		$('.upload_video_page').html(`<h2> Video successfully uploaded! </h2>
+			<a href= "/class/${className}"><button class= "class_page_button"> Back to ${className} </button></a>`)
+	})
+}*/
+
+$(getClassData());
+$(getUsername());
+$(handleAddClassButton());
