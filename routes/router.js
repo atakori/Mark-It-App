@@ -24,7 +24,7 @@ router.get("/", function (req,res) {
 })
 
 router.get("/userHome", isLoggedIn, function (req,res) {
-    res.render("loggedIn");
+    res.render("loggedIn", {username: req.user.username});
 })
 
 router.get("/login", function (req, res) {
@@ -50,6 +50,16 @@ router.get("/makeClass", isLoggedIn, function (req, res) {
 	res.render("createClass");
 })
 
+router.get('/api/user_data', function (req, res) {
+	if(req.user === undefined) {
+		res.json({});
+	} else {
+		res.json({
+			username:req.user
+		});
+	}
+})
+//route for getting the username
 
 router.post("/upload", function (req, res) {
 	console.log(req.body);

@@ -1,4 +1,5 @@
 let currentClassData;
+let currentUser = `<%=username%>`
 
 function displayClasses(data) {
 	for (index in data.classes) {
