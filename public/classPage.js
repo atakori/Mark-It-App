@@ -1,3 +1,14 @@
+let currentUser;
+
+function getUsername() {
+	let url = `/api/user_data`;
+	$.getJSON(url).then(userdata => {
+		currentUser = userdata.currentUser.username;
+		console.log(userdata);
+	})
+}
+//makes the username available as a global variable
+
 function getClassData() {
 	let className = $(location).attr('pathname').split("/");
 			className = className[2].split("%20");
@@ -6,13 +17,13 @@ function getClassData() {
 	$.getJSON(url).then(data => {
 		console.log(data);
   		displayClassData(data)
-
   }) 
 }
 
 function displayClassData (data) {
 	$('.class_page_header').html(`<h1 class= "class_header"> 
-		Welcome to <span class= class_title>${data.matchingClasses[0].className}</span></h1>`);
+		Welcome to <span class= class_title>${data.matchingClasses[0].className}</span></h1>
+		<div class= "user_button"> </div>`);
 	$('.class_page_description').html(`<h2 class= "class_description">
 	${data.matchingClasses[0].description}</h2>`);
 	$('.class_videos_section').html(`<h2 class= "videos_header"> 
@@ -25,6 +36,7 @@ function displayClassData (data) {
 	let classdata = data.matchingClasses[0];
 	let videoData = data.matchingClasses[0].videos;
 	renderClassVideos(classdata, videoData);
+	checkStudentEnrollment(classdata);
 }
 
 function renderClassVideos(data, videos) {
@@ -40,4 +52,24 @@ function renderClassVideos(data, videos) {
 //if there are video object in the array, show them to the user
 //if not, display a 'no video message'
 
+function checkStudentEnrollment(data) {
+	if(data.currentUsers.length === 0) {
+		renderAddClassButton(data);
+	}
+	for(let i=0; i<data.currentUsers.length; i++) {
+		if(data.currentUsers[i] === currentUser) {
+			return console.log('User currently enrolled in Class');
+		} 
+		renderAddClassButton(data);
+	}
+}
+//checks if the student is added to the course already
+//if not, the add Class button shows up on the page
+
+function renderAddClassButton(userdata) {
+	$('.user_button').html(`<a href= "/api/${currentUser}/addUser">
+	 <button class= "add_class_button"> Add Class</button></a>`)
+}
+
 getClassData();
+getUsername();

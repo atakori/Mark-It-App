@@ -55,7 +55,7 @@ router.get('/api/user_data', function (req, res) {
 		res.json({});
 	} else {
 		res.json({
-			username:req.user
+			currentUser:req.user
 		});
 	}
 })
