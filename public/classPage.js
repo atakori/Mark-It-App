@@ -94,7 +94,6 @@ function postUsernametoClass (className, currentUser) {
 		console.log(data)
 	})
 	.done(function() {
-		getClassData()
 		console.log('User successfully enrolled');
 		renderAddedUsertoClassMessage();
 		//need to add $('.').html() to add visual feedback
