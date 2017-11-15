@@ -124,6 +124,14 @@ router.get("/class/:name", function(req,res) {
 })
 //returns the class data
 
+router.get("/api/usersclasses", function (req, res) {
+	Class
+	.find({currentUsers: req.user.username})
+	.then(usersClasses => {
+		res.json(usersClasses);
+	})
+})
+
 router.get("/logout", function(req,res) {
 	req.logout();
 	res.redirect("/");

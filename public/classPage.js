@@ -53,8 +53,6 @@ function renderClassVideos(data, videos) {
 //if not, display a 'no video message'
 
 function checkStudentEnrollment(data) {
-	console.log(data.currentUsers[0]);
-	console.log(currentUser);
 	function userMatch(user) {
 		return  user === currentUser;
 	}
