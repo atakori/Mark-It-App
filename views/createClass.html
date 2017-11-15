@@ -30,6 +30,7 @@
 		<section class= "create_class_page">
 			<h1>Create a new Class</h1>
 			<form role= "form" action= "/makeClass" method= "POST" class= "create_class_form">
+				<p class= "create_class_error_message"></p>
 				<label>Class Name</label>
 				<input type="text" name= "className" class="class_name_input">
 				<label>Genre</label>
@@ -51,7 +52,7 @@
 				<label> Zipcode</label>
 				<input type="text" name="zipcode" class="zipcode_input">
 				<label>Class Description</label>
-				<input type="text" name="description" class="class_schedule_input">
+				<input type="text" name="description" class="class_description_input">
 				<button type= "submit" class= "create_class_button">Create my class</button>
 				<div class= "feedback_section"> 
 				</div>

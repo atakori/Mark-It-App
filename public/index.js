@@ -26,16 +26,46 @@ function handleSearchClassesButton() {
 	});
 }
 
-/*function handleGoToClassPageButton() {
-	$('.search_results').on('click', '.class_button', function(e) {
-		e.preventDefault();
-		console.log("WORKING");
-		let className = $(this).find('.class_name').text();
-		getPageInformation(className);
-		//this should be substitued for the class ID in the future
-/*	})*/
-/*}*/
+function handleCreateClassesButton() {
+	$('.create_class_form').on('click', '.create_class_button', function (e) {
+		if ($('.class_name_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the class name`);
+		} else if ($('.class_genre_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the class genre`);
+		} else if ($('.class_schedule_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the weekly day and time of the class`);
+		} else if ($('.difficulty_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the class difficuty`);
+		} else if ($('.choreographer_name_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the choreographer's name`);
+		} else if ($('.studio_name_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the Studio Name`);
+		}  else if ($('.street_name_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the Studio's street name`);
+		} else if ($('.city_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the Studio's city location`);
+		} else if ($('.state_name_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please enter the studio's state location`);
+		} else if ($('.zipcode_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please fill in the Studio location's zipcode`);
+		} else if ($('.class_description_input').val().length === 0) {
+			e.preventDefault()
+			$('.create_class_error_message').html(`Please enter a class description`);
+		} 
+	})
+}
 
+$(handleCreateClassesButton());
 $(handleLoginButton());
 $(handleSearchClassesButton());
 $(handleTestButton());
