@@ -53,9 +53,7 @@ function showUploader(){
 	$('.video_uploader').show();
 }
 
-function handleVideoInfoButton() {
-	$('.upload_form').on('click', '.post_video_info', function(e) {
-		e.preventDefault();
+function grabVideoData() {
 		let videoTitle = $('.video_title_input').val();
 		let classDate = $('.class_date_input').val();
 		let dancers =  $('.video_dancers_input').val();
@@ -63,7 +61,6 @@ function handleVideoInfoButton() {
 			className = className[2].split("%20");
 			className = className.join(' ');
 		postVideoInfotoServer(className, videoTitle, classDate, dancers, video_id, video_url);
-	})
 }
 
 function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_id, video_url) {
@@ -75,6 +72,28 @@ function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_
 		$('.upload_video_page').html(`<h2> Video successfully uploaded! </h2>
 			<a href= "/class/${className}"><button class= "class_page_button"> Back to ${className} </button></a>`)
 	})
+}
+
+function checkforFilledForm() {
+  $('.upload_form').on('click', '.post_video_info', function (e) {
+    e.preventDefault()
+    console.log('button works')
+    console.log($('.video_title_input').val().length === 0)
+    if ($('.video_title_input').val().length === 0) {
+      $('.response_message').html(`Please fill out the video's title`);
+    } else if ($('.class_date_input').val().length === 0) {
+      $('.response_message').html(`Please enter a class date for the video`);
+    } else if ($('.video_dancers_input').val().length === 0) {
+      $('.response_message').html(`Please list a few of the featured dancers`);
+    } else {
+      grabVideoData();
+    }
+  })
+
+  /*if ($('.class_name_input').val().length === 0) {
+      e.preventDefault()
+      $('.create_class_error_message').html(`Please fill in the class name`);
+    } else if*/
 }
 /*function getClasses(choreographer) {
 	let url = `/searchresults?choreographer=${choreographer}`;
@@ -126,6 +145,6 @@ $.fn.widthPerc = function(){
 }
 */
 /*$(handleUserSelectedVideo());*/
+$(checkforFilledForm());
 $(handleVideoUpload());
-$(handleVideoInfoButton());
 hideVideoInfo();
