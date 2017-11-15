@@ -17,10 +17,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //this is for the login route!
+
 router.post("/", passport.authenticate("local", {
     successRedirect: "/userHome",
-    failureRedirect: "/login"
+    failureRedirect: "/login",
 }),function(req, res) {
+	res.send('Invalid Username or Password')
 })
 
 module.exports = router;
