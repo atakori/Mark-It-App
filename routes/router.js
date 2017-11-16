@@ -119,7 +119,7 @@ router.get("/class/:name", function(req,res) {
 	.find({className: req.params.name})
 	.then(classJSON => {
 		console.log(classJSON);
-		res.render("classPage", {classJSON: classJSON})
+		res.status(200).render("classPage", {classJSON: classJSON})
 	});
 })
 //returns the class data

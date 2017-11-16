@@ -57,5 +57,21 @@ describe('Testing ROUTES endpoints', function() {
 			res.should.be.html;
 		})
 	})
+	it('should return HTML and 200 status code for the createClass.html page', function() {
+		return chai.request(app)
+		.get('/makeClass')
+		.then(function(res) {
+			res.should.have.status(200);
+			res.should.be.html;
+		})
+	})
+	it('should return HTML and 200 status code for the videoPage.html', function() {
+		return chai.request(app)
+		.get('/class/:name/upload')
+		.then(function(res) {
+			res.should.have.status(200);
+			res.should.be.html;
+		})
+	})
 })
 
