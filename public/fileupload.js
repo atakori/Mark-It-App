@@ -5,12 +5,26 @@ function handleVideoUpload() {
 	$('#fileupload').fileupload({
 		dataType: 'json',
         add: function (e, data) {
-            data.context = $('<button/>').text('Upload')
+            if(data.files[0].size <= "40000000" && data.files[0].type === "video/mp4") {
+              console.log('Meets file size and type limits');
+              $('.error_message').empty();
+              data.context = $(`<button id="upload_button" class= "confirm_upload_button">Upload Video</button>`)
                 .appendTo(document.body)
                 .click(function () {
                     data.context = $('<p/>').text('Uploading...').replaceAll($(this));
                     data.submit();
                 });
+            } else if (data.files[0].size > "40000000") {
+              console.log('file too big');
+              $('.error_message').html(`File exceeds 40mb limit. Please choose a smaller file.`);
+              removePresentUploadButton()
+            } else {
+              console.log('Video not mp4 file');
+              $('.error_message').html(`${data.files[0].type} not currently supported. Please convert file to an mp4 to upload`);
+              removePresentUploadButton()
+            }
+            console.log(data);
+          //checks to make sure that file siza and type limits are being met
         },
         done: function (e, data) {
         	let result= data.result;
@@ -35,6 +49,13 @@ function handleVideoUpload() {
         console.log(progress + '%')
     }
     });
+}
+
+function removePresentUploadButton() {
+  if (document.getElementById('upload_button')) {
+    let button = document.getElementById('upload_button');
+    button.remove();
+  }
 }
 
 function hideVideoInfo() {
@@ -89,24 +110,8 @@ function checkforFilledForm() {
       grabVideoData();
     }
   })
-
-  /*if ($('.class_name_input').val().length === 0) {
-      e.preventDefault()
-      $('.create_class_error_message').html(`Please fill in the class name`);
-    } else if*/
 }
-/*function getClasses(choreographer) {
-	let url = `/searchresults?choreographer=${choreographer}`;
-  	$.getJSON(url).then( data => {
-  		displaySearchResults(data);*/
 
-/*<p> Now just give a few more details...</p>					<label>Video Title</label>
-			<input type="text" class="video_title_input" placeholder= "New Rules -- Dua Lipa">
-				<label> Class Date:</label>
-				<input type="text" class="class_date_input" placeholder= "MM/DD/YYYY">				<label> Featured Dancers</label>
-			<input type="text" class="video_title_input" placeholder= "John Doe, Beyonce...">
-			<button class= "post_video_info"> Upload new Video! </button>
-*/
 /*function handleVideoUpload (){
 $('.video-info').append($.cloudinary.unsigned_upload_tag("o8uzrarh", 
   { cloud_name: 'mark-it-cloud' }).bind('cloudinaryprogress', function(e, data) { 
