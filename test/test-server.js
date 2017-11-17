@@ -75,3 +75,14 @@ describe('Testing ROUTES endpoints', function() {
 	})
 })
 
+describe('Testing GET endpoints', function() {
+	it('should return an empty object with the users info when the user is logged out', function() {
+		return chai.request(app)
+		.get('/api/user_data')
+		.then(function(res) {
+			res.should.be.json;
+			res.body.should.be.an('object');
+			res.body.should.be.deep.equal({});
+		})
+	}) // add test for returning username object if user is logged in
+})
