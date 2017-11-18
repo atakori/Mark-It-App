@@ -227,6 +227,14 @@ describe('Class API resource', function() {
 				res.body.should.be.deep.equal({});
 			})
 		}) // add test for returning username object if user is logged in
+		it('should return the specific class information', function() {
+			return chai.request(app)
+			.get("/class/:name")
+			.then(function(res) {
+				res.should.have.status(200);
+				res.should.be.html
+			})
+		})
 	})
 
 	describe( 'Testing POST endpoints', function() {
