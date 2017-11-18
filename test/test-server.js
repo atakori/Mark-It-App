@@ -247,5 +247,14 @@ describe('Class API resource', function() {
 				res.should.have.status(200);
 			})
 		})
+		it('should post the current user to the currentUsers array in the DB', function() {
+			let user = "testUser1"
+			return chai.request(app)
+			.post("/class/:name/addUser")
+			.send(user)
+			.then(function(res) {
+				res.should.have.status(200);
+			})
+		})
 	})
 });
