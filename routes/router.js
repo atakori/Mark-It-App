@@ -39,7 +39,7 @@ router.get("/class/:name/upload", isLoggedIn, function (req, res) {
 	res.render("uploadVideo");
 })
 
-router.get("/class/:name/:videoID", function (req, res) {
+router.get("/class/:name/:videoID", isLoggedIn, function (req, res) {
 	res.render("videoPage");
 })
 
@@ -91,7 +91,7 @@ router.post("/upload", function (req, res) {
             {resource_type: "video"});
 	}
 } else {
-	let mock_data = {public_id: 'kzakiaeqllosoh6nyuyp',
+	let mock_data = `{public_id: 'kzakiaeqllosoh6nyuyp',
 			  version: 1510887366,
 			  signature: '1b51343cf2e2c5d6dbea43bf79b47159e8e35759',
 			  width: 640,
@@ -125,8 +125,8 @@ router.post("/upload", function (req, res) {
 			  bit_rate: 696171,
 			  duration: 203.56,
 			  rotation: 0,
-			  original_filename: 'file'};
-		res.json(mock_data);
+			  original_filename: 'file'};`;
+	res.json(mock_data);
 	}
 })
 

@@ -126,42 +126,6 @@ function generateRandomVideo() {
 		video_url: 'http://res.cloudinary.com/mark-it-cloud/video/upload/v1510889040/koyeqo04hnomlvwuolfo.mp4'}
 }
 
-
-/*className: {
-		type:String,
-		required: true,
-	},
-	genre: {
-		type:String,
-		required:true,
-	},
-	difficulty: {type: String},
-    choreographer: {type: String},
-    studio: {
-    	name: {type:String},
-    	address: {
-				street: {type:String},
-				city: {type:String} ,
-				state: {type:String},
-				zipcode: {type:String}
-			}
-    	},
-    weeklyDayandTime: {
-		type:String,
-		required: true,
-	},
-	dateCreated: {type: Date, default: Date.now},
-	description: {type:String},
-	currentUsers: [String],
-	videos: [{
-		videoTitle: {type: String},
-		classDate: {type:String},
-		dancers: {type:String},
-		video_id: {type:String},
-		video_url: {type:String}
-	}]
-	})*/
-
 describe('Class API resource', function() {
 
   // we need each of these hook functions to return a promise
@@ -266,12 +230,21 @@ describe('Class API resource', function() {
 	})
 
 	describe( 'Testing POST endpoints', function() {
-		it('should post the cloudinary video to the server', function() {
+		//skipping upload cloudinary video test because that has to do with cloudinary API
+		//which they are responsible for ensuring
+		it('should post the video information to database', function() {
+			let videoData = {
+				videoTitle: "Test Video",
+				classDate: "11/19/2017",
+				dancers: "Jessica Renolds, James Thompson",
+				video_id: "453894651",
+				video_url: "https://res.cloudinary.com/mark-it-cloud/video/upload/v1510887366/kzakiaeqllosoh6nyuyp.mp4"
+			}
 			return chai.request(app)
-			.post('/upload')
-			.send(mock_data)
+			.post('/class/:name/upload')
+			.send(videoData)
 			.then(function(res) {
-				res.should.be.json;
+				res.should.have.status(200);
 			})
 		})
 	})
