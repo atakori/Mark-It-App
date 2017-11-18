@@ -13,25 +13,70 @@ function seedClassData() {
   const seedData = [];
 
   for (let i=1; i<=10; i++) {
-    seedData.push(generateRestaurantData());
+    seedData.push(generateClassData());
   }
   // this will return a promise
-  return Restaurant.insertMany(seedData);
+  return Class.insertMany(seedData);
 }
 
-function generateRestaurantData() {
+function generateClassData() {
   return {
     className: faker.company.companyName(),
-    borough: generateBoroughName(),
-    cuisine: generateCuisineType(),
-    address: {
-      building: faker.address.streetAddress(),
+    genre: generateGenreName(),
+    difficulty: generateDifficultyType(),
+    choreographer: generateChoreographerName(),
+    studio: {
+    	name: faker.company.companyName(),
+    	address: {
       street: faker.address.streetName(),
+      City: generateState(),
       zipcode: faker.address.zipCode()
+      	}
     },
-    grades: [generateGrade(), generateGrade(), generateGrade()]
+    weeklyDayandTime: generateWeeklyDayandTime(),
+    dateCreated: '11/19/2017',
+    currentUsers: [generateUser(), generateUser(), generateUser()],
+    Videos: [generateRandomVideo(), generateRandomVideo()]
   }
 }
+
+function generateGenreName() {
+	const genres = ['Modern', 'Contemporary', 'Hip-Hop', 'Jazz', 'Tap'];
+	return genres[Math.floor(Math.random() * genres.length)]
+}
+
+function generateDifficultyType() {
+	const difficulty = ['Beginner', 'Intermediate', 'Advanced', 'Professional'];
+	return difficulty[Math.floor(Math.random() * difficulty.length)]
+}
+
+function generateChoreographerName() {
+	const names = ['Tonya Hardy', 'Ben Jameson', 'Lucy Fields', 'Eric McDonald'];
+	return names[Math.floor(Math.random() * names.length)]
+}
+
+function generateState() {
+	const states = ['GA', 'TX', 'NY', 'CA', ];
+	return states[Math.floor(Math.random() * states.length)]
+}
+
+function generateWeeklyDayandTime() {
+	const schedule = ['Tuesdays at 9PM', 'Wednesdays at 3PM', 'Sundays at 5PM', 'Saturdays at 10AM'];
+	return schedule[Math.floor(Math.random() * schedule.length)]
+}
+
+function generateUser() {
+	const users = ['theUser', 'mBrody94', 'Tlang55' 'Staib1'];
+	return users[Math.floor(Math.random() * user.length)]
+}
+function generateRandomVideo() {
+	return {videoTitle: generateVideoName(),
+		classDate: '12/31/2017',
+		dancers: generateChoreographerName(),
+		video_id: '15658',
+		video_url: 'http://res.cloudinary.com/mark-it-cloud/video/upload/v1510889040/koyeqo04hnomlvwuolfo.mp4'}
+}
+
 
 /*className: {
 		type:String,
