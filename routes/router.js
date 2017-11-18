@@ -63,6 +63,8 @@ router.get('/api/user_data', function (req, res) {
 
 router.post("/upload", function (req, res) {
 	console.log(req.body);
+	if(process.env.NODE_ENV != "test")
+{
 	if(req.files) {
 		let file = req.files.filename;
 		let filename = file.name;
@@ -87,6 +89,44 @@ router.post("/upload", function (req, res) {
             	}
         }, 
             {resource_type: "video"});
+	}
+} else {
+	let mock_data = {public_id: 'kzakiaeqllosoh6nyuyp',
+			  version: 1510887366,
+			  signature: '1b51343cf2e2c5d6dbea43bf79b47159e8e35759',
+			  width: 640,
+			  height: 360,
+			  format: 'mp4',
+			  resource_type: 'video',
+			  created_at: '2017-11-17T02:56:07Z',
+			  tags: [],
+			  pages: 0,
+			  bytes: 17718881,
+			  type: 'upload',
+			  etag: 'eaa45cf4790d23ae7ba4a6e8bfcef693',
+			  placeholder: false,
+			  url: 'http://res.cloudinary.com/mark-it-cloud/video/upload/v1510887366/kzakiaeqllosoh6nyuyp.mp4',
+			  secure_url: 'https://res.cloudinary.com/mark-it-cloud/video/upload/v1510887366/kzakiaeqllosoh6nyuyp.mp4',
+			  audio: 
+			   { codec: 'aac',
+			     bit_rate: '96005',
+			     frequency: 44100,
+			     channels: 2,
+			     channel_layout: 'stereo' },
+			  video: 
+			   { pix_format: 'yuv420p',
+			     codec: 'h264',
+			     level: 30,
+			     profile: 'Constrained Baseline',
+			     bit_rate: '597824',
+			     dar: '16:9' },
+			  is_audio: false,
+			  frame_rate: 25,
+			  bit_rate: 696171,
+			  duration: 203.56,
+			  rotation: 0,
+			  original_filename: 'file'};
+		res.json(mock_data);
 	}
 })
 

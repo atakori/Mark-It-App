@@ -8,6 +8,7 @@ function handleVideoUpload() {
             if(data.files[0].size <= "40000000" && data.files[0].type === "video/mp4") {
               console.log('Meets file size and type limits');
               $('.error_message').empty();
+              removePresentUploadButton();
               data.context = $(`<button id="upload_button" class= "confirm_upload_button">Upload Video</button>`)
                 .appendTo(document.body)
                 .click(function () {
