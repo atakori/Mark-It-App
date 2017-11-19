@@ -235,6 +235,13 @@ describe('Class API resource', function() {
 				res.should.be.html
 			})
 		})
+		it('should return all of the currentUsers classes', function() {
+			return chai.request(app)
+			.get("/api/usersclasses")
+			.then(function(res) {
+				res.should.be.json;
+			})
+		}) 
 	})
 
 	describe( 'Testing POST endpoints', function() {

@@ -165,11 +165,19 @@ router.get("/class/:name", function(req,res) {
 //returns the class data
 
 router.get("/api/usersclasses", function (req, res) {
+	if(process.env.NODE_ENV === "production") {
 	Class
 	.find({currentUsers: req.user.username})
 	.then(usersClasses => {
 		res.json(usersClasses);
 	})
+} else {
+	Class
+	.find({currentUsers: 'test'})
+	.then(usersClasses => {
+		res.json(usersClasses);
+	})
+}
 })
 
 router.get("/logout", function(req,res) {
