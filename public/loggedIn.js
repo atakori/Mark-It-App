@@ -30,7 +30,7 @@ function displayUserName(data) {
 function renderUsersClassesList(classes) {
 	for(let i=0; i<classes.length; i++) {
 		$('.user_class_list').append(`<p class= "class"> ${classes[i].className} | 
-			${classes[i].genre} | ${classes[i].studioname} | 
+			${classes[i].genre} | ${classes[i].studio.name} | 
 			${classes[i].weeklyDayandTime}</p> 
 			<a href = "/class/${classes[i].className}"><button class= "class_button"> Go to 
 			 <span class= "class_name">${classes[i].className}</span> page</Button></a>`);
