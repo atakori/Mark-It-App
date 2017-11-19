@@ -32,7 +32,6 @@ function getClasses(choreographer) {
 
 function displaySearchResults(data) {
 	$('.search_results').empty();
-	console.log(data);
 	if (data.classes.length === 0) {
 		$('.search_results').html(`<h2 class= "no_results_message"> Sorry, there are no matching choreographers found. Try another person! </h2>`)
 	} else {

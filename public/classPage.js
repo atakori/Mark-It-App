@@ -4,7 +4,6 @@ function getUsername() {
 	let url = `/api/user_data`;
 	$.getJSON(url).then(userdata => {
 		currentUser = userdata.currentUser.username;
-		console.log(userdata);
 	})
 }
 //makes the username available as a global variable
@@ -15,7 +14,6 @@ function getClassData() {
 			className = className.join(' ');
 	let url = `/classdata?className=${className}`;
 	$.getJSON(url).then(data => {
-		console.log(data);
   		displayClassData(data)
   }) 
 }
@@ -42,7 +40,7 @@ function displayClassData (data) {
 function renderClassVideos(data, videos) {
 	if(videos.length >0) {
 		for(let i= 0; i<videos.length; i++) {
-			$('.video_list').append(`<a href= "/class/${data.className}/${videos[i].video_id}"<li class= "class_video"> 
+			$('.video_list').append(`<li class= "class_video"><a href= "/class/${data.className}/${videos[i].video_id}"> 
 			${videos[i].videoTitle} | ${videos[i].classDate}</li></a>`)
 		}
 	} else {

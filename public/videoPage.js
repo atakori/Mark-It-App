@@ -11,8 +11,6 @@ function getClassInfo() {
 function displayVideoInformation(data) {
 	let id = $(location).attr('pathname').split("/");
 			id = id[3];
-			console.log(data);
-			console.log(id);
 	for (let i=0; i<data.videos.length; i++) {
 		if(data.videos[i].video_id === id) {
 			let video_object = data.videos[i];
