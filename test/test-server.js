@@ -65,7 +65,7 @@ function tearDownDb() {
 
 function generateClassData() {
   return {
-    className: faker.company.companyName(),
+    className: "test",
     genre: generateGenreName(),
     difficulty: generateDifficultyType(),
     choreographer: generateChoreographerName(),
@@ -79,7 +79,7 @@ function generateClassData() {
     },
     weeklyDayandTime: generateWeeklyDayandTime(),
     dateCreated: '11/19/2017',
-    currentUsers: [generateUser(), generateUser(), generateUser()],
+    currentUsers: ["test", generateUser(), generateUser(), generateUser()],
     Videos: [generateRandomVideo(), generateRandomVideo()]
   }
 }
@@ -229,7 +229,8 @@ describe('Class API resource', function() {
 		}) // add test for returning username object if user is logged in
 		it('should return the specific class information', function() {
 			return chai.request(app)
-			.get("/class/:name")
+			.get("/class/test")
+			// testing "/class/:name"
 			.then(function(res) {
 				res.should.have.status(200);
 				res.should.be.html
@@ -242,6 +243,34 @@ describe('Class API resource', function() {
 				res.should.be.json;
 			})
 		}) 
+		it('should redirect the user to the home page upon logging out', function() {
+			return chai.request(app)
+			.get("/logout")
+			.then(function(res) {
+				res.should.be.html;
+			})
+		})
+		it('should return the search results for a matching choreographer', function() {
+			return chai.request(app)
+			.get("/searchresults")
+			.query({choreographer: "Tonya Hardy"})
+			.then(function(res) {
+				res.should.have.status(200);
+				res.body.classes[0].should.have.keys('className', 'choreographer', 'currentUsers', 'dateCreated', 'difficulty', 'genre', 'id', 'studioAddress', 'studioName', 'videos', 'weeklyDayandTime');
+				res.should.be.json;
+				res.body.classes.should.be.a('array')
+			})
+		})
+		it('should return the class infomation if given the name', function() {
+			return chai.request(app)
+			.get("/classdata")
+			.query({className: 'test'})
+			.then(function(res) {
+				res.should.be.json;
+				res.should.have.status(200);
+				res.body.matchingClasses[0].should.have.keys('className', 'choreographer', 'currentUsers', 'dateCreated', 'difficulty', 'genre', 'id', 'studioAddress', 'studioName', 'videos', 'weeklyDayandTime')
+			})
+		})
 	})
 
 	describe( 'Testing POST endpoints', function() {
@@ -252,23 +281,56 @@ describe('Class API resource', function() {
 				videoTitle: "Test Video",
 				classDate: "11/19/2017",
 				dancers: "Jessica Renolds, James Thompson",
-				video_id: "453894651",
+				videos_id: "453894651",
 				video_url: "https://res.cloudinary.com/mark-it-cloud/video/upload/v1510887366/kzakiaeqllosoh6nyuyp.mp4"
 			}
 			return chai.request(app)
-			.post('/class/:name/upload')
-			.send(videoData)
+			.post('/class/test/upload')
+			//testing /class/:name/upload
+			.query(videoData)
 			.then(function(res) {
 				res.should.have.status(200);
+				res.body.should.be.deep.equal({ n: 1, nModified: 1, ok: 1 });
 			})
-		})
+		})///class/:name/upload
 		it('should post the current user to the currentUsers array in the DB', function() {
 			let user = "testUser1"
 			return chai.request(app)
-			.post("/class/:name/addUser")
+			.post("/class/test/addUser")
+			//testing /class/:name/upload
 			.send(user)
 			.then(function(res) {
 				res.should.have.status(200);
+				res.body.should.be.deep.equal({ n: 1, nModified: 1, ok: 1 })
+				//the responce values of 1 means that the specific username
+				//was added to the specific class name
+				//since the post function does not return the actual class obj
+				//this is the best way to test if the post method worked
+			})
+		})
+
+		it('should post the new class to the database', function() {
+			let classData = {
+				 className: 'new class',
+     			 genre: 'modern',
+     			 difficulty: 'Beginner',
+			     choreographer: 'Fred Thompson',
+			     studioName: 'Studio #1',
+		      	 street: '1234 studio way',
+		      	 city: 'Atlanta',
+		      	 state: 'GA',
+		      	 zipcode: '30329',
+			     weeklyDayandTime: 'Tuesdays at 8PM',
+			     description: 'testing'
+
+			}
+			let json = JSON.stringify(classData);
+			return chai.request(app)
+			.post("/makeClass")
+			.set('content-type', 'application/json')
+			.send(classData)
+			.then(function(res) {
+				res.body.should.have.keys('className');
 			})
 		})
 	})
