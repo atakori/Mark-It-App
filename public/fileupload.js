@@ -12,7 +12,8 @@ function handleVideoUpload() {
               data.context = $(`<button id="upload_button" class= "confirm_upload_button">Upload Video</button>`)
                 .appendTo(document.body)
                 .click(function () {
-                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                    data.context = $(`<img class = "loading_gif"src="/ajax-loader-2.gif" alt="File loading">`).replaceAll($(this));
+                    $('.upload_section').hide();
                     data.submit();
                 });
             } else if (data.files[0].size > "40000000") {
@@ -30,7 +31,8 @@ function handleVideoUpload() {
         done: function (e, data) {
         	let result= data.result;
         	console.log(result);
-            data.context.text('');
+            data.context = $(`<p/>`).replaceAll($(this))
+            $('.loading_gif').hide();
             console.log('video uploaded to cloudinary!');
        		//show user the results and input fields
        		//change upload file to finalizing
@@ -39,8 +41,8 @@ function handleVideoUpload() {
        		hideUploader();
        		showVideoInfo();
 
-        },
-        progressall: function (e, data) {
+        }
+/*        progressall: function (e, data) {
         let progress = parseInt(data.loaded / data.total * 100, 10);
         console.log("uploading file to server");
         $('#progress .bar').css(
@@ -48,7 +50,7 @@ function handleVideoUpload() {
             progress + '%'
         );
         console.log(progress + '%')
-    }
+    }*/ //removing upload progress bar (not needed for server upload)
     });
 }
 
