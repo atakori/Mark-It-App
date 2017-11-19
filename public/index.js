@@ -61,8 +61,26 @@ function handleCreateClassesButton() {
 		} else if ($('.class_description_input').val().length === 0) {
 			e.preventDefault()
 			$('.create_class_error_message').html(`Please enter a class description`);
-		} 
-	})
+		} else {
+			e.preventDefault();
+			let data = new FormData($('#create_form')[0]);
+			 $.ajax( {
+			      data: data,
+			      dataType: 'json',
+			      type: 'POST',
+			      url: '/makeClass',
+			      contentType:false,
+                  cache: false,
+                  processData:false,
+			      success: function(feedback){
+			         console.log("Class successfully created");
+			         console.log(feedback);
+			         $('.create_class_page').html(`<h1 class= "created_message"> Your new class has been created</h1>
+			         	<a href= "/class/${feedback.className}"><button> Go to ${feedback.className} class page!</button> </a>`)
+			      }
+		})
+	}
+})
 }
 
 $(handleCreateClassesButton());
