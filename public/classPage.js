@@ -4,13 +4,13 @@ function getUsername() {
 	let url = `/api/user_data`;
 	$.getJSON(url).then(userdata => {
 		currentUser = userdata.currentUser.username;
-		getClassData();
+		getClassData(currentUser);
 		console.log(currentUser);
 	})
 }
 //makes the username available as a global variable
 
-function getClassData() {
+function getClassData(currentUser) {
 	let className = $(location).attr('pathname').split("/");
 			className = className[2].split("%20");
 			className = className.join(' ');
@@ -18,7 +18,14 @@ function getClassData() {
 	$.getJSON(url).then(data => {
 		console.log(data);
   		displayClassData(data)
+  		if(currentUser === data.matchingClasses[0].adminUser) {
+  			displayAdminInfo();
+  		}
   }) 
+}
+
+function displayAdminInfo() {
+	$('.class_admin_section').html(`<button class= "admin_delete_class_button">Delete Class</button>`)
 }
 
 function displayClassData (data) {

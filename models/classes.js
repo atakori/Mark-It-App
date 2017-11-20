@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const classSchema = mongoose.Schema({
+	adminUser: {type: String},
 	className: {
 		type:String,
 		required: true,
@@ -44,6 +45,7 @@ classSchema.virtual('addressString').get(function() {
 classSchema.methods.apiRepr = function() {
     return {
     	id:this._id,
+    	adminUser: this.adminUser,
         className: this.className,
         genre: this.genre,
         difficulty: this.difficulty,

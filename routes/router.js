@@ -198,6 +198,7 @@ router.post("/makeClass",(req,res) => {
 	}
 	Class
     .create({
+      adminUser: req.user.username,
       className: req.body.className,
       genre: req.body.genre,
       difficulty: req.body.difficulty,
