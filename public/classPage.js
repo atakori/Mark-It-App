@@ -4,6 +4,8 @@ function getUsername() {
 	let url = `/api/user_data`;
 	$.getJSON(url).then(userdata => {
 		currentUser = userdata.currentUser.username;
+		getClassData();
+		console.log(currentUser);
 	})
 }
 //makes the username available as a global variable
@@ -14,6 +16,7 @@ function getClassData() {
 			className = className.join(' ');
 	let url = `/classdata?className=${className}`;
 	$.getJSON(url).then(data => {
+		console.log(data);
   		displayClassData(data)
   }) 
 }
@@ -114,6 +117,5 @@ function renderAddedUsertoClassMessage() {
 	})
 }*/
 
-$(getClassData());
 $(getUsername());
 $(handleAddClassButton());
