@@ -262,4 +262,12 @@ router.get("/classdata", (req, res) => {
 	});
 })
 
+router.post("/class/:name/deleteuser", (req,res) => {
+	Class
+	.findOneAndUpdate({className: req.params.name}, {$pull: {currentUsers: req.user.username}})
+	.then(deletedClass => {
+		res.json(deletedClass);
+	})
+})
+
 module.exports = router;

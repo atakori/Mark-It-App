@@ -309,6 +309,17 @@ describe('Class API resource', function() {
 				//this is the best way to test if the post method worked
 			})
 		})
+		it.skip('should remove the user from the selected class', function() {
+			return chai.request(app)
+			.post("/class/test/deleteuser")
+			//testing /class/:name/deleteuser
+			.send(user)
+			.then(function(res) {
+				res.should.be.json;
+				//skipping because the res gives you the classdata
+				//before removing the username even though it is removed
+			})
+		})
 
 /*		it('should post the new class to the database', function() {
 			let classData = {
