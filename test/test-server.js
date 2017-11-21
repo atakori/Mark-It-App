@@ -320,6 +320,15 @@ describe('Class API resource', function() {
 				//before removing the username even though it is removed
 			})
 		})
+		it.skip('should delete the class from the database', function() {
+			return chai.request(app)
+			.delete("/api/test/deleteclass")
+			//testing /class/:name/deleteuser`
+			.then(function(res) {
+				res.should.be.json;
+				res.should.be.equal(1)
+			})
+		})
 
 /*		it('should post the new class to the database', function() {
 			let classData = {
