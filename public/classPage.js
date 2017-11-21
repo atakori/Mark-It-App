@@ -25,7 +25,7 @@ function getClassData(currentUser) {
 }
 
 function displayAdminInfo() {
-	$('.class_admin_section').html(`<button class= "admin_delete_class_button">Delete Class</button>`)
+	$('.class_admin_section').html(`<button class= "admin_delete_class_button">Permanently Delete Class</button>`)
 }
 
 function handleDeleteClassButton() {
@@ -110,7 +110,6 @@ function renderAddClassButton(userdata) {
 function handleAddClassButton() {
 	$('.class_page_header').on('click', '.add_class_button', function (e) {
 		e.preventDefault();
-		console.log('button hooked up');
 		let className = $(location).attr('pathname').split("/");
 			className = className[2].split("%20");
 			className = className.join(' ');

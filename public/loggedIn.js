@@ -33,32 +33,6 @@ function handleDeleteClassButton() {
 		let className = $(this).parent().attr('className')
 		console.log(className);
 		deleteUsernameFromClass(className);
-
-
-/*function handleAddClassButton() {
-	$('.class_page_header').on('click', '.add_class_button', function (e) {
-		e.preventDefault();
-		console.log('button hooked up');
-		let className = $(location).attr('pathname').split("/");
-			className = className[2].split("%20");
-			className = className.join(' ');
-		postUsernametoClass(className, currentUser)
-	})
-}
-
-function postUsernametoClass (className, currentUser) {
-	let url= `/class/${className}/addUser?currentUser=${currentUser}`;
-	$.post(url, function(data) {
-		console.log(data)
-	})
-	.done(function() {
-		console.log('User successfully enrolled');
-		renderAddedUsertoClassMessage();
-		//need to add $('.').html() to add visual feedback
-		//user they have been added!
-		//this will reload the page when completed!
-	})
-}*/
 	})
 }
 
@@ -76,9 +50,9 @@ function deleteUsernameFromClass(className) {
 
 function renderUsersClassesList(classes) {
 	for(let i=0; i<classes.length; i++) {
-		$('.user_class_list').append(`<li id= "class" className= "${classes[i].className}"><p class= "class"> ${classes[i].className} | 
+		$('.user_class_list').append(`<li id= "class" className= "${classes[i].className}"> ${classes[i].className} | 
 			${classes[i].genre} | ${classes[i].studio.name} | 
-			${classes[i].weeklyDayandTime}</p> 
+			${classes[i].weeklyDayandTime} 
 			<button class= "delete_class_button">Delete Class</button>
 			<a href = "/class/${classes[i].className}"><button class= "class_button"> Go to 
 			 <span class= "class_name">${classes[i].className}</span> page</Button></a> </li>`);
