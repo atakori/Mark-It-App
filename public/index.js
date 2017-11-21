@@ -1,3 +1,11 @@
+let username;
+function getUsername() {
+	let url = `/api/user_data`;
+	$.getJSON(url).then(data => {
+		username = data.currentUser.username;
+	})
+}
+
 function handleLoginButton() {
 	$('.login_page_form').on('click', '.login_button', function(event) {
 		if($('.password_input').val().length === 0) {
@@ -73,8 +81,11 @@ function handleCreateClassesButton() {
                   cache: false,
                   processData:false,
 			      success: function(feedback){
+			      	let className = feedback.className;
+			      	let currentUser = username;
 			         console.log("Class successfully created");
 			         console.log(feedback);
+			         postUsernametoClass(className, currentUser);
 			         $('.create_class_page').html(`<h1 class= "created_message"> Your new class has been created</h1>
 			         	<a href= "/class/${feedback.className}"><button> Go to ${feedback.className} class page!</button> </a>`)
 			      }
@@ -83,6 +94,14 @@ function handleCreateClassesButton() {
 })
 }
 
+function postUsernametoClass(className, currentUser) {
+	let url= `/class/${className}/addUser?currentUser=${currentUser}`;
+	$.post(url, function(data) {
+		console.log('Username posted to Class');
+	})
+}
+
+getUsername();
 $(handleCreateClassesButton());
 $(handleLoginButton());
 $(handleSearchClassesButton());
