@@ -271,4 +271,12 @@ router.post("/class/:name/deleteuser", (req,res) => {
 	})
 })
 
+router.delete("/api/:name/deleteclass", (req,res) => {
+	Class
+	.remove({className: req.params.name})
+	.then(deletedClass => {
+		res.json(deletedClass);
+	})
+})
+
 module.exports = router;

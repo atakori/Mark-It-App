@@ -28,6 +28,30 @@ function displayAdminInfo() {
 	$('.class_admin_section').html(`<button class= "admin_delete_class_button">Delete Class</button>`)
 }
 
+function handleDeleteClassButton() {
+	$('.class_admin_section').on('click', '.admin_delete_class_button', function(e) {
+		e.preventDefault();
+		console.log("WORKING!")
+		let className = $(location).attr('pathname').split("/");
+			className = className[2].split("%20");
+			className = className.join(' ');
+			deleteClassFromDatabase(className);
+	})
+}
+
+function deleteClassFromDatabase(className) {
+	$.ajax({
+		url: `/api/${className}/deleteclass`,
+		type: 'DELETE',
+		success: function(result) {
+			console.log(result);
+			console.log('Class successfully deleted from database!');
+			$('main').html(`<h1 class = "deleted_message">This class has been deleted</h1>
+				<a href= "/userHome"><button class= "home_button">Back to Home Page</button></a>`);
+		}
+	})
+}
+
 function displayClassData (data) {
 	$('.class_page_header').html(`<h1 class= "class_header"> 
 		Welcome to <span class= class_title>${data.matchingClasses[0].className}</span></h1>
@@ -126,3 +150,4 @@ function renderAddedUsertoClassMessage() {
 
 $(getUsername());
 $(handleAddClassButton());
+$(handleDeleteClassButton());
