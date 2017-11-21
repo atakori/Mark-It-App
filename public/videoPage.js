@@ -2,6 +2,7 @@ function getClassInfo() {
 	let className = $(location).attr('pathname').split("/");
 			className = className[2].split("%20");
 			className = className.join(' ');
+	$('.video_header').html(`${className}`)
 	let url = `/classdata?className=${className}`;
 	$.getJSON(url).then(data => {
   		displayVideoInformation(data.matchingClasses[0])
