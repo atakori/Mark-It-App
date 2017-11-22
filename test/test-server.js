@@ -323,7 +323,7 @@ describe('Class API resource', function() {
 		it.skip('should delete the class from the database', function() {
 			return chai.request(app)
 			.delete("/api/test/deleteclass")
-			//testing /class/:name/deleteuser`
+			//testing /class/:name/deleteclass`
 			.then(function(res) {
 				res.should.be.json;
 				res.should.be.equal(1)
