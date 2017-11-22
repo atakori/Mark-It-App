@@ -3,6 +3,22 @@
     background: green;
 }
 
+.jumbotron {
+  color: black;
+  margin-bottom: 0px;
+  background-image: url(https://images.unsplash.com/photo-1504293476958-6d6d0257d014?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.jumbotron .slogan {
+  width: 40%;
+}
+
+/*Below is used for videoPage.html*/
  .video-js .vjs-control-bar { 
     display: -webkit-box;
     display: -webkit-flex;
