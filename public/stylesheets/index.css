@@ -1,9 +1,11 @@
 body {
-  background: url(https://image.ibb.co/dsgEDR/Horrizontal3.png) no-repeat center center fixed; 
+  background-color: gray;
+  background: url(https://image.ibb.co/dsgEDR/Horrizontal3.png) no-repeat center 275px fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
 }
 
 /*BACKGROUND IMAGES*/
