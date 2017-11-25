@@ -35,7 +35,8 @@ body {
   width: 50%;
   color: black;
   float: right;
-  margin-right: 2%;
+  padding-left: 2%;
+
 
 }
 
@@ -48,9 +49,13 @@ body {
 
 }
 
-/*"mark_it_summary_section">
-        <h2 class= "summary_header"> What is it?</h2>
-        <p class= "summary"*/
+.get_started_button {
+  margin: auto;
+}
+
+.centered_button {
+  text-align: center;
+}
 
 /*Below is used for videoPage.html*/
  .video-js .vjs-control-bar { 
