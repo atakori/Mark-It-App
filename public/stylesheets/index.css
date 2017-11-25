@@ -58,6 +58,16 @@ body {
   text-align: center;
 }
 
+footer {
+  clear: both;
+  background-color: grey;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+
 /*Below is used for videoPage.html*/
  .video-js .vjs-control-bar { 
     display: -webkit-box;
