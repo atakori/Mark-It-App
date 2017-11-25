@@ -51,6 +51,7 @@ body {
 
 .get_started_button {
   margin: auto;
+  width: 75%;
 }
 
 .centered_button {
