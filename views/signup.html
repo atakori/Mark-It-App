@@ -10,6 +10,7 @@
 	<script type = 'text/javascript' src='https://code.jquery.com/jquery-3.2.1.js'></script>
 	<link rel="stylesheet" type="text/css" href="/../stylesheets/signup.css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather|Poppins" rel="stylesheet">
 
 
 </head>
@@ -30,16 +31,26 @@
 	<main role= "main">
 		<section class= "sign_up_page">
 			<form role= "form" action= "/signup" method= "post" class = sign_up_form>
-				<h1> Create a New Account </h1>
-				<label> First Name: </label>
-				<input type="text" name= "firstname" placeholder= "John">
-				<label> Last Name: </label>
-				<input type="text" name= "lastname" placeholder= "Smith">
-				<label> Username: </label>
-				<input type="text" name= "username">
-				<label> Password: </label>
-				<input type="password" name= "password">
-				<button type="submit" class= "sign_up_button"> Create my account</button>
+				<h1 class= "form_title"> Create a New Account </h1>
+				<div class= "first_name_section">
+					<label> First Name: </label>
+					<input type="text" name= "firstname" placeholder= "John">
+				</div>
+				<div class= "last_name_section">
+					<label> Last Name: </label>
+					<input type="text" name= "lastname" placeholder= "Smith">
+				</div>
+				<div class= "username_section">
+					<label> Username: </label>
+					<input type="text" name= "username">
+				</div>
+				<div class= "password_section">
+					<label> Password:  </label>
+					<input type="password" name= "password">
+				<div>
+				<div>
+					<button type="submit" class= "btn btn-lg btn-primary sign_up_button"> Create my account</button>
+				</div>
 			</form> 
 		</section>
 	<footer class= " footer_bar navbar-inverse">

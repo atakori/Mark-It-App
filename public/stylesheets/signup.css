@@ -15,3 +15,92 @@ footer {
   width: 100%;
   text-align: center;
 }
+
+form {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid black;
+	background-color: rgba(0,10,25,.76);
+	color: white;
+	margin-top: 255px;
+}
+
+.form_title {
+	font-size: 50px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sign_up_button {
+	margin-top: 20px;
+    width: 95%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+.first_name_section {
+	text-align: center;
+}
+
+.first_name_section label {
+	font-size:20px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.first_name_section input {
+	width: 60%;
+    height: 40px;
+    font-size: 30px;
+    color: black;
+}
+
+.last_name_section {
+	text-align: center;
+}
+
+.last_name_section label {
+	font-size:20px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.last_name_section input {
+	width: 60%;
+    height: 40px;
+    font-size: 30px;
+    color: black;
+}
+
+.username_section {
+	text-align: center;
+}
+
+.username_section label {
+	font-size:20px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.username_section input {
+	width: 60%;
+    height: 40px;
+    font-size: 30px;
+    color: black;
+}
+
+.password_section {
+	text-align: center;
+}
+
+.password_section label {
+	font-size:20px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.password_section input {
+	width: 60%;
+    height: 40px;
+    font-size: 30px;
+    color: black;
+}
+
