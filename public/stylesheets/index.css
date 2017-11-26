@@ -36,6 +36,7 @@ body {
     float: right;
     padding-left: 2%;
     border: 1px solid black;
+    border-radius: 5%;
     margin-top: 20px;
     margin-right: 1%;
     margin-left: 5%;
@@ -47,11 +48,12 @@ body {
 
 .summary_header {
   font-size: 45px;
+  font-family: 'Merriweather', serif;
 }
 
 .summary {
   font-size: 20px;
-
+  font-family: 'Poppins', sans-serif;
 }
 
 .get_started_button {
