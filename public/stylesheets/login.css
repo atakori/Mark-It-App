@@ -28,6 +28,7 @@ form {
 .form_title {
 	font-size: 50px;
     text-align: center;
+	font-family: 'Poppins', sans-serif;
 }
 
 .username_section {
@@ -36,6 +37,7 @@ form {
 
 .username_section label {
 	font-size:20px;
+	font-family: 'Poppins', sans-serif;
 }
 
 .username_input {
@@ -57,6 +59,7 @@ form {
 
 .password_section label {
 	font-size:20px;
+	font-family: 'Poppins', sans-serif;
 }
 
 .submit_button_section {
@@ -66,6 +69,7 @@ form {
 .login_button {
 	margin-top: 20px;
     width: 95%;
+	font-family: 'Poppins', sans-serif;
 }
 
 .error_message {
@@ -82,4 +86,5 @@ form {
 
 .signup_link a {
 	color: white;
+	font-family: 'Poppins', sans-serif;
 }
