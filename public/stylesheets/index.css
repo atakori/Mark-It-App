@@ -159,3 +159,20 @@ footer {
   /* Otherwise we'll rely on stacked opacities */
   background: rgba(115, 133, 159, 0.75);
 }
+
+@media (max-width: 744px) {
+  .mark_it_summary_section {
+    width: 100%;
+    float: none;
+    padding-left: 2%;
+    border: 1px solid black;
+    border-radius: 0%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    background-color: rgba(0,10,25,.76);
+    color: white;
+    padding-bottom: 10px;
+}
+}
