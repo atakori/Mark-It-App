@@ -50,9 +50,9 @@ function deleteUsernameFromClass(className) {
 
 function renderUsersClassesList(classes) {
 	for(let i=0; i<classes.length; i++) {
-		$('.user_class_list').append(`<li id= "class" className= "${classes[i].className}"> ${classes[i].className} | 
+		$('.user_class_list').append(`<li id= "class" className= "${classes[i].className}"> <span class= "class_name_title">${classes[i].className} </span> <p class= "class_info"> 
 			${classes[i].genre} | ${classes[i].studio.name} | 
-			${classes[i].weeklyDayandTime} 
+			${classes[i].weeklyDayandTime} </p> 
 			<button class= "btn btn-danger delete_class_button">Delete Class</button>
 			<a href = "/class/${classes[i].className}"><button class= "btn btn-success class_button"> Go to 
 			 <span class= "class_name">${classes[i].className}</span> page</Button></a> </li>`);

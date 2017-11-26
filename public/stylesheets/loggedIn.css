@@ -46,9 +46,31 @@ footer {
     background-color: rgba(0,10,25,.76);
     color: white;
     padding-left: 1%;
-    padding-right: 1%
+    padding-right: 1%;
+    padding-bottom: 10px;
 }
 
 .class_list_title {
 	text-align: center;
 }
+
+.class_name_title {
+	font-size: 20px;
+    text-align: center;
+    display: block;
+}
+
+.class_info {
+	text-align: center;
+    font-size: 16px;
+
+}
+
+li#class {
+	list-style: none;
+}
+
+.btn {
+	width: 49%;
+}
+
