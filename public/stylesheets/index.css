@@ -1,6 +1,6 @@
 body {
   background-color: gray;
-  background: url(https://image.ibb.co/dsgEDR/Horrizontal3.png) no-repeat center 275px fixed; 
+  background: url(https://image.ibb.co/dsgEDR/Horrizontal3.png) no-repeat center 293px fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -32,12 +32,17 @@ body {
 }
 
 .mark_it_summary_section {
-  width: 50%;
-  color: black;
-  float: right;
-  padding-left: 2%;
-
-
+    width: 47%;
+    float: right;
+    padding-left: 2%;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-right: 1%;
+    margin-left: 5%;
+    text-align: center;
+    background-color: rgba(0,10,25,.76);
+    color: white;
+    padding-bottom: 10px;
 }
 
 .summary_header {
