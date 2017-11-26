@@ -61,7 +61,7 @@ function displayClassData (data) {
 	$('.class_videos_section').html(`<h2 class= "videos_header"> 
 		Class Videos</h2> <div class= video_list></div>`);
 	$('.class_upload_section').html(`<a href= "/class/${data.matchingClasses[0].className}/upload">
-	 <button class= "upload_video_button"> Upload new class video</button></a>`)
+	 <button class= "btn btn-lg btn-danger upload_video_button"> Upload new class video</button></a>`)
 	$('.class_information_section').html(`<div class= "class_info"><h3 class= "info_header"> Class Info</h3><p> Studio: ${data.matchingClasses[0].studioName}
 		</p> <p class= "studio_address">${data.matchingClasses[0].studioAddress}</p>
 		<p class= "class_time">${data.matchingClasses[0].weeklyDayandTime}</p></div>`)
