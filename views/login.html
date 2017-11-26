@@ -28,13 +28,19 @@
 	</header>
 		<section class= "login_page"> 
 			<form action= "/login" method = "POST" class= "login_page_form">
-				<h1> Login </h1>
+				<h1 class = "form_title"> Login </h1>
 				<p class= "error_message"></p>
-				<label> Username: </label>
-				<input class = "username_input" type="text" name= "username" placeholder= "username">
-				<label> Password: </label>
-				<input class = "password_input" type="password" name= "password" placeholder= "password">
-				<button type="submit" class= "login_button">Login</button>
+				<div class= "username_section">
+					<label> Username: </label>
+					<input class = "username_input" type="text" name= "username" placeholder= "username">
+				</div>
+				<div class= "password_section">
+					<label> Password: </label>
+					<input class = "password_input" type="password" name= "password" placeholder= "password">
+				</div>
+				<div class= "submit_button_section">
+					<button type="submit" class= "btn btn-lg btn-danger login_button">Login</button>
+				</div>
 				<p> <a href= "/signup"> Sign up for an account </a></p>
 			</form>
 		</section>
