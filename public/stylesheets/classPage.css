@@ -18,8 +18,11 @@ footer {
 
 .class_page_grouped_header {
 	border: 2px solid black;
-	background-color: rgba(0,10,25,.76);
-	color: white;
+    background-color: rgba(0,10,25,.76);
+    color: white;
+    padding-left: 1%;
+    padding-right: 1%;
+
 }
 
 .admin_delete_class_button {
@@ -35,6 +38,11 @@ footer {
     float: right;
     margin-top: 10px;
     margin-right: 1%;
+    padding-left: 1%;
+}
+
+.info_header {
+	text-decoration: underline;
 }
 
 .class_videos_section {
@@ -57,8 +65,60 @@ footer {
 	text-align: center;
 }
 
+.class_video a {
+	color: white;
+    font-size: 20px;
+}
+
 .upload_video_button {
 	width: 65%;
 	margin-left: 1%;
 	margin-top: 10px;
+}
+
+@media (max-width: 652px) {
+	.class_page_grouped_header {
+		text-align: center;
+	}
+
+	.class_info {
+		border: none;
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+	    background-color: rgba(0,10,25,.76);
+	    color: white;
+	    width: 100%;
+	    float: right;
+	    margin-top: 10px;
+	    margin-bottom: 10px;
+	    margin-right: 0%;
+	    padding-left: 1%;
+	    text-align: center;
+	}
+
+	.class_videos_section {
+		clear: both;
+		border: none;
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+	    color: white;
+	    background-color: rgba(0,10,25,.76);
+	    margin-top: 10px;
+	    margin-bottom: 10px;
+	    margin-left: 0%;
+	    padding-left: 1%;
+	    padding-bottom:10%;
+	    width: 100%;
+	    min-height: 50px;
+	}
+	.info_header {
+		font-size: 30px;
+	}
+
+	.class_info p {
+		font-size: 20px;
+	}
+	.upload_video_button {
+		width: 100%;
+	}
 }
