@@ -11,6 +11,10 @@ body {
 /*BACKGROUND IMAGES*/
 /*Back-up Background: https://images.unsplash.com/photo-1502519144081-acca18599776?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D*/
 
+#nav {
+  margin-bottom: 0px;
+}
+
 .bar {
     height: 18px;
     background: green;
