@@ -293,17 +293,20 @@ describe('Class API resource', function() {
 				res.should.have.status(200);
 				res.body.should.be.deep.equal({ n: 1, nModified: 1, ok: 1 });
 			})
-		})///class/:name/upload
+		})
 		it('should post the current user to the currentUsers array in the DB', function() {
-			let user = "testUser1"
+			let currentUser = "testUser1"
 			return chai.request(app)
 			.post("/class/test/addUser")
-			//testing /class/:name/upload
-			.send(user)
+			//testing /class/${currentUser}/addUser
+			//let url= `/class/${className}/addUser?currentUser=${currentUser}
+			.query({currentUser: "testUser1"})
 			.then(function(res) {
+				console.log(res);
+				console.log(res.body);
 				res.should.have.status(200);
 				res.body.should.be.deep.equal({ n: 1, nModified: 1, ok: 1 })
-				//the responce values of 1 means that the specific username
+				//the response values of 1 means that the specific username
 				//was added to the specific class name
 				//since the post function does not return the actual class obj
 				//this is the best way to test if the post method worked

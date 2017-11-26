@@ -149,9 +149,9 @@ router.post("/class/:name/addUser", function (req,res) {
 	.findOne({className: req.params.name})
 	.update({$push: {currentUsers: req.query.currentUser}})
 	.then(user => {
-		Class.findOne({className: req.params.name}, function(className) {
-			res.status(200).send(className);
-		})
+		/*Class.findOne({className: req.params.name}, function(className) */{
+			res.status(200).send(user);
+		}
 	})
 })
 
