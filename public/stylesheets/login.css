@@ -34,8 +34,29 @@ form {
 	text-align: center;
 }
 
+.username_section label {
+	font-size:20px;
+}
+
+.username_input {
+	width: 60%;
+    height: 40px;
+    font-size: 30px;
+}
+
+.password_input {
+	width: 60%;
+    height: 40px;
+    font-size: 30px;
+}
+
 .password_section {
 	text-align: center;
+	margin-top: 10px;
+}
+
+.password_section label {
+	font-size:20px;
 }
 
 .submit_button_section {
@@ -45,4 +66,20 @@ form {
 .login_button {
 	margin-top: 20px;
     width: 95%;
+}
+
+.error_message {
+	color:red;
+	font-size: 20px;
+	text-align: center;
+}
+
+.signup_link {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 18px;
+}
+
+.signup_link a {
+	color: white;
 }
