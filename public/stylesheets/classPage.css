@@ -25,9 +25,19 @@ footer {
 
 }
 
+.class_header {
+	font-family: 'Merriweather', serif;
+}
+
+.class_description {
+	font-family: 'Crete Round', serif;
+}
+
+
 .admin_delete_class_button {
 	float:right;
 	margin-right:1%;
+	font-family: 'Sanchez', serif;
 }
 
 .class_info {
@@ -41,8 +51,14 @@ footer {
     padding-left: 1%;
 }
 
+.class_info p {
+	font-family: 'Sanchez', serif;
+	font-size: 16px;
+}
+
 .info_header {
 	text-decoration: underline;
+	font-family: 'Sanchez', serif;
 }
 
 .class_videos_section {
@@ -59,22 +75,28 @@ footer {
 .videos_header {
 	text-align: center;
 	text-decoration: underline;
+	font-family: 'Sanchez', serif;
 }
 
 .no_videos_message {
 	text-align: center;
+	font-family: 'Sanchez', serif;
+
 }
 
 .class_video a {
 	color: white;
     font-size: 20px;
+    font-family: 'Sanchez', serif;
+
 }
 
 .upload_video_button {
 	width: 65%;
 	margin-left: 1%;
 	margin-top: 10px;
-}
+	font-family: 'Crete Round', serif;
+	}
 
 @media (max-width: 652px) {
 	.class_page_grouped_header {
@@ -118,7 +140,12 @@ footer {
 	.class_info p {
 		font-size: 20px;
 	}
+
 	.upload_video_button {
-		width: 100%;
+		width: 98%;
+	}
+	.admin_delete_class_button {
+	float:none;
+	width: 90%;
 	}
 }
