@@ -298,8 +298,7 @@ describe('Class API resource', function() {
 			let currentUser = "testUser1"
 			return chai.request(app)
 			.post("/class/test/addUser")
-			//testing /class/${currentUser}/addUser
-			//let url= `/class/${className}/addUser?currentUser=${currentUser}
+			//testing `/class/${className}/addUser?currentUser=${currentUser}
 			.query({currentUser: "testUser1"})
 			.then(function(res) {
 				console.log(res);
