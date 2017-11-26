@@ -22,6 +22,11 @@ footer {
 	color: white;
 }
 
+.admin_delete_class_button {
+	float:right;
+	margin-right:1%;
+}
+
 .class_info {
 	border: 2px solid black;
     background-color: rgba(0,10,25,.76);
