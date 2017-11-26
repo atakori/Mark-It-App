@@ -53,8 +53,8 @@ function renderUsersClassesList(classes) {
 		$('.user_class_list').append(`<li id= "class" className= "${classes[i].className}"> ${classes[i].className} | 
 			${classes[i].genre} | ${classes[i].studio.name} | 
 			${classes[i].weeklyDayandTime} 
-			<button class= "delete_class_button">Delete Class</button>
-			<a href = "/class/${classes[i].className}"><button class= "class_button"> Go to 
+			<button class= "btn btn-danger delete_class_button">Delete Class</button>
+			<a href = "/class/${classes[i].className}"><button class= "btn btn-success class_button"> Go to 
 			 <span class= "class_name">${classes[i].className}</span> page</Button></a> </li>`);
 	}
 }

@@ -15,3 +15,17 @@ footer {
   width: 100%;
   text-align: center;
 }
+
+.container {
+	border: 2px solid red;
+	background-color: white;
+}
+
+.class_list_page {
+	margin-top: 10px;
+    border: 2px solid red;
+    float: right;
+    width: 42%;
+    min-height: 400px;
+    margin-right: 1%;
+}
