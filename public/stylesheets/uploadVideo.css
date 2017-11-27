@@ -15,3 +15,107 @@ footer {
   width: 100%;
   text-align: center;
 }
+
+.upload_video_page {
+	border: 2px solid black;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgba(0,10,25,.76);
+	color: white;
+}
+
+.upload_video_page h1 {
+	text-align: center;
+	font-family: 'Merriweather', serif;
+}
+
+.upload_section {
+	padding-left: 2%;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.upload_section label {
+	font-size: 20px;
+	width: 49%;
+	font-family: 'Sanchez', serif;
+}
+
+#fileupload {
+	display: inline;
+	width: 49%;
+}
+
+.error_message {
+	font-size: 20px;
+	font-family: 'Crete Round', serif;
+}
+
+.confirm_upload_button {
+	width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 10px;
+	font-family: 'Crete Round', serif;
+}
+
+.response_message {
+	font-size: 20px;
+	text-align: center;
+	font-family: 'Crete Round', serif;
+}
+
+.video_info {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.video_info label {
+	font-size: 20px;
+	font-family: 'Sanchez', serif;
+}
+
+.video_info input {
+	display: block;
+    height: 30px;
+    font-size: 25px;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.post_video_info {
+	display: block;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+	font-family: 'Crete Round', serif;
+	margin-top: 10px;
+}
+
+.loading_gif {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.success_message {
+	text-align: center;
+	font-family: 'Merriweather', serif;
+}
+
+.class_page_button {
+	display: block;
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Crete Round', serif;
+}

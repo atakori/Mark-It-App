@@ -5,12 +5,13 @@ function handleVideoUpload() {
 	$('#fileupload').fileupload({
 		dataType: 'json',
         add: function (e, data) {
+            let formelement= document.getElementById("file_upload_form")
             if(data.files[0].size <= "40000000" && data.files[0].type === "video/mp4") {
               console.log('Meets file size and type limits');
               $('.error_message').empty();
               removePresentUploadButton();
-              data.context = $(`<button id="upload_button" class= "confirm_upload_button">Upload Video</button>`)
-                .appendTo(document.body)
+              data.context = $(`<button id="upload_button" class= "btn btn-lg btn-primary confirm_upload_button">Upload Video</button>`)
+                .appendTo(formelement)
                 .click(function () {
                     data.context = $(`<img class = "loading_gif"src="/ajax-loader-2.gif" alt="File loading">`).replaceAll($(this));
                     $('.upload_section').hide();
@@ -62,11 +63,11 @@ function removePresentUploadButton() {
 }
 
 function hideVideoInfo() {
-	$('.video-info').hide()
+	$('.video_info').hide()
 }
 
 function showVideoInfo() {
-	$('.video-info').show()
+	$('.video_info').show()
 }
 
 function hideUploader() {
@@ -93,8 +94,8 @@ function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_
 		console.log(data)
 	})
 	.done(function() {
-		$('.upload_video_page').html(`<h2> Video successfully uploaded! </h2>
-			<a href= "/class/${className}"><button class= "class_page_button"> Back to ${className} </button></a>`)
+		$('.upload_video_page').html(`<h2 class= "success_message"> Video successfully uploaded! </h2>
+			<a href= "/class/${className}"><button class= "btn btn-lg btn-primary class_page_button"> Back to ${className} </button></a>`)
 	})
 }
 
