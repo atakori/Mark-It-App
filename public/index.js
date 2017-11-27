@@ -19,13 +19,6 @@ function handleLoginButton() {
 }
 //Tells the users if there is a missing userName or Password
 
-function handleTestButton() {
-	$('.class_results_page').on('click', '.test', function (e) {
-		e.preventDefault();
-		console.log("WORKING!")
-	})
-}
-
 function handleSearchClassesButton() {
 	$('.class_results_form').on('click', '.search_button',function(e){
 	  e.preventDefault();
@@ -105,4 +98,3 @@ getUsername();
 $(handleCreateClassesButton());
 $(handleLoginButton());
 $(handleSearchClassesButton());
-$(handleTestButton());
