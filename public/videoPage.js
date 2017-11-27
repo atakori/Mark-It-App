@@ -22,7 +22,7 @@ function displayVideoInformation(data) {
 			$('.video_info_section').html(`<h2 class= "video_title"> ${video_object.videoTitle} </h2>
 				<p class= "video_date">Class Date: ${video_object.classDate} </p>
 				<p class= "video_dancers">Featured Dancers: ${video_object.dancers} </p>`);
-			$('.class_video_section').append(`<a href= "/class/${data.className}"><button> Back to class</button></a>`)
+			$('.class_video_section').append(`<a href= "/class/${data.className}"><button class= "btn btn-lg btn-primary back_to_class_button"> Back to class</button></a>`)
 		}
 	}
 }
