@@ -30,32 +30,52 @@
 
 	<main role= "main">
 		<section class= "create_class_page">
-			<h1>Create a new Class</h1>
+			<h1 class= "page_title">Create a new Class</h1>
 			<form id= "create_form" role= "form" action= "/makeClass" method= "POST" class= "create_class_form">
 				<p class= "create_class_error_message"></p>
-				<label>Class Name</label>
-				<input type="text" name= "className" class="class_name_input">
-				<label>Genre</label>
-				<input type="text" name="genre" class="class_genre_input" placeholder= "Contemporary, Hip hop, etc.">
-				<label>Day and Time of class</label>
-				<input type="text" name="weeklyDayandTime" class="class_schedule_input" placeholder= "Tuesdays at 8PM">
-				<label> Difficulty</label>
-				<input type="text" name="difficulty" class="difficulty_input" placeholder= "Intermediate">
-				<label> Choreographer Name</label>
-				<input type="text" name="choreographer" class="choreographer_name_input">
-				<label> Studio Name</label>
-				<input type="text" name="studioName" class="studio_name_input">
-				<label> Studio street address</label>
-				<input type="text" name="street" class="street_name_input">
-				<label> City</label>
-				<input type="text" name="city" class="city_input">
-				<label> State</label>
-				<input type="text" name="state" class="state_name_input">
-				<label> Zipcode</label>
-				<input type="text" name="zipcode" class="zipcode_input">
-				<label>Class Description</label>
-				<input type="text" name="description" class="class_description_input">
-				<button type= "submit" class= "create_class_button">Create my class</button>
+				<table style="width:100%">
+				  <tr>
+				    <th><label>Class Name</label></th>
+				    <th><label>Genre</label></th> 
+				    <th><label>Day and Time of class</label></th>
+				  </tr>
+				  <tr>
+				    <td><input type="text" name= "className" class="class_name_input"></td>
+				    <td><input type="text" name="genre" class="class_genre_input" placeholder= "Contemporary, Hip hop, etc."></td> 
+				    <td><input type="text" name="weeklyDayandTime" class="class_schedule_input" placeholder= "Tuesdays at 8PM"></td>
+				  </tr>
+				  <tr>
+				    <th><label> Difficulty</label></th>
+				    <th><label> Choreographer Name</label></th> 
+				    <th><label> Studio Name</label></th>
+				  </tr>
+				  <tr>
+				    <td><input type="text" name="difficulty" class="difficulty_input" placeholder= "Intermediate"></td>
+				    <td><input type="text" name="choreographer" class="choreographer_name_input"></td> 
+				    <td><input type="text" name="studioName" class="studio_name_input"></td>
+				  </tr>
+				  <tr>
+				    <th><label> Studio street address</label></th>
+				    <th><label> City</label></th> 
+				    <th><label> State</label></th>
+				  </tr>
+				  <tr>
+				    <td><input type="text" name="street" class="street_name_input"></td>
+				    <td><input type="text" name="city" class="city_input"></td> 
+				    <td><input type="text" name="state" class="state_name_input"></td>
+				  </tr>
+				  <tr>
+				    <th><label> Zipcode</label></th>
+				  </tr>
+				  <tr>
+				    <td><input type="text" name="zipcode" class="zipcode_input"></td>
+				  </tr>
+				  <tr>
+				    <th><label>Class Description</label>
+				  </tr>
+				  <tr><td> <input type="text" name="description" class="class_description_input"></td></tr>
+				</table>
+<button type= "submit" class= "btn btn-lg btn-success create_class_button">Create my class</button>
 				<div class= "feedback_section"> 
 				</div>
 			</form>
