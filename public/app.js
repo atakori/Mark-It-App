@@ -32,8 +32,9 @@ function getClasses(choreographer) {
 
 function displaySearchResults(data) {
 	$('.search_results').empty();
+	$('.search_results').html(`<h2 class= "search_results_header">Available Classes</h2>`);
 	if (data.classes.length === 0) {
-		$('.search_results').html(`<h2 class= "no_results_message"> Sorry, there are no matching choreographers found. Try another person! </h2>`)
+		$('.search_results').append(`<h2 class= "no_results_message"> Sorry, there are no matching choreographers found. Try another person! </h2>`)
 	} else {
 	for (let i=0; i<data.classes.length; i++) {
 		$('.search_results').append(`<li class = "class_info"> ${data.classes[i].className} |
