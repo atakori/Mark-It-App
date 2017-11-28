@@ -27,17 +27,21 @@ footer {
 }
 
 .page_title {
- text-align:center;
- font-size: 4em;
+  text-align:center;
+  font-size: 4em;
+  font-family: 'Crete Round', serif;
 }
 
 .create_class_error_message {
   color: red;
   text-align: center;
+  font-size: 1.3em;
+  font-family: 'Libre Baskerville', serif;
 }
 
 form label {
   font-size:1.3em;
+  font-family: 'Libre Baskerville', serif;
 }
 
 form input {
@@ -47,6 +51,7 @@ form input {
     color: black;
     border-radius: 3px;
     width: 90%;
+
 }
 
 .create_class_button {
@@ -55,6 +60,7 @@ form input {
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Crete Round', serif;
 }
 
 .class_description_input {
