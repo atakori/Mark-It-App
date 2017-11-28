@@ -5,6 +5,7 @@ const {Class} = require('../models/classes');
 const cloudinary = require('cloudinary');
 const upload = require('express-fileupload');
 const fs = require('fs');
+const path = require('path');
 
 cloudinary.config({
 	cloud_name: "mark-it-cloud",
@@ -76,7 +77,8 @@ router.post("/upload", function (req, res) {
 				console.log("video loaded to server!")
 			}
 		})
-		let filepath= './uploads/' +filename
+		let filepath= path.join(__dirname, `../uploads/${filename}`);
+		/*let filepath= './uploads/' +filename*/
 			cloudinary.uploader.upload_large(filepath, 
             function(result) {
             	res.json(result);
