@@ -24,7 +24,7 @@ body {
   color: black;
   margin-bottom: 0px;
   background-image: url(https://images.unsplash.com/photo-1504293476958-6d6d0257d014?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
-  background-position: center center;
+  background-position: center 63%;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
@@ -178,5 +178,11 @@ footer {
     background-color: rgba(0,10,25,.76);
     color: white;
     padding-bottom: 10px;
+  }
 }
-}
+
+ @media (max-width:1300px) {
+    .jumbotron {
+      background-position: center center;
+    }
+  }
