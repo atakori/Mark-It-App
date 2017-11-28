@@ -24,6 +24,7 @@ function handleSearchClassesButton() {
 	  e.preventDefault();
 	  const choreographer = $('.search_term').val();
 	  getClasses(choreographer);
+	  $('.search_results').addClass('border');
 	});
 }
 

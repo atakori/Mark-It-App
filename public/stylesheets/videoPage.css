@@ -25,6 +25,8 @@ footer {
   padding-bottom: 10px;
   background-color: rgba(0,10,25,.76);
   color: white;
+  font-family: 'Merriweather', serif;
+  font-size: 45px;
 }
 
 .video_info_section {
@@ -39,14 +41,17 @@ footer {
 
 .video_title {
   font-size: 35px;
+  font-family: 'Merriweather', serif;
 }
 
 .video_date {
   font-size: 20px;
+  font-family: 'Crete Round', serif;
 }
 
 .video_dancers {
   font-size: 20px;
+  font-family: 'Crete Round', serif;
 }
 
 .back_to_class_button {
@@ -54,6 +59,7 @@ footer {
   display: block;
   margin-right: auto;
   margin-left:auto;
+  font-family: 'Merriweather', serif;
 }
 
 .video-js {
