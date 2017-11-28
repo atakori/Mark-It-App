@@ -38,8 +38,8 @@ function displaySearchResults(data) {
 	} else {
 	for (let i=0; i<data.classes.length; i++) {
 		$('.search_results').append(`<li class = "class_info"> <span class= "class_title">${data.classes[i].className} </span>
-			 ${data.classes[i].genre} | ${data.classes[i].studioName} | 
-			 ${data.classes[i].weeklyDayandTime} </li> 
+			 <span class= "class_details">${data.classes[i].genre} | ${data.classes[i].studioName} | 
+			 ${data.classes[i].weeklyDayandTime}</span> </li> 
 			 <a href = "/class/${data.classes[i].className}"><button class= "btn btn-primary class_button"> Go to 
 			 <span class= "class_name">${data.classes[i].className}</span> page</Button></a> <hr class="line_seperator">`)
 		}	

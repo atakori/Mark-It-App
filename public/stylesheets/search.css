@@ -50,18 +50,24 @@ input:-webkit-autofill:active {
 
 .form_label {
   display: block;
-  font-size: 3em;
+  font-size: 4em;
 }
 
 .search_term {
   background: transparent;
   border: none;
   border-bottom: 2px solid green;
-  width: 100%;
+  width: 70%;
   height: 50px;
   font-size: 40px;
   text-align: center;
   margin-bottom: 5px;
+}
+
+.search_button {
+    display: block;
+    width: 80%;
+    margin: 5px auto;
 }
 
 .search_results {
@@ -88,6 +94,7 @@ input:-webkit-autofill:active {
   text-align: center;
   text-decoration: underline;
   padding-top: 10px;
+  font-size: 2.5em;
 }
 
 .class_info {
@@ -98,7 +105,11 @@ input:-webkit-autofill:active {
 
 .class_title {
   display: block;
-  font-size: 24px;
+  font-size: 2.0em;
+}
+
+.class_details {
+  font-size: 1.2em;
 }
 
 .class_button {
@@ -106,6 +117,7 @@ input:-webkit-autofill:active {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
+  font-size: 1.1em;
 }
 
 .line_seperator {
@@ -118,22 +130,22 @@ input:-webkit-autofill:active {
   background-image: -o-linear-gradient(left, #3c763d, #21d460, #3c763d); 
 }
 
-@media (min-width: 605px) {
-  .search_term {
-  margin-bottom: none;
-  width: 50%;
-}
- .search_results {
+@media (min-width: 768px) {
+   .search_results {
   width: 48%;
   float: right;
  }
  .border {
   border: 2px solid black;
  }
-}
+  .search_button {
+    display: inline-block;
+    width: 30%;
+    margin-bottom: 5px;
 
-@media (min-width: 1100px) {
-  .class_results_form {
-    height:10em;
+  }
+  .search_term {
+    width: 60%;
+    margin-right: 10px;
   }
 }
