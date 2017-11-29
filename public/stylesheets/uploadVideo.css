@@ -119,3 +119,12 @@ footer {
 	margin-right: auto;
 	font-family: 'Crete Round', serif;
 }
+
+input .cloudinary_fileupload {
+	display: inline;
+    width: 49%;
+}
+
+input[type=file] {
+	display: inline;
+}

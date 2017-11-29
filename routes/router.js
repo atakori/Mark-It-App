@@ -77,7 +77,7 @@ router.post("/upload", function (req, res) {
 				console.log("video loaded to server!")
 			}
 		})
-		let filepath= path.join(__dirname, `../uploads/${filename}`);
+		let filepath= path.join(__dirname, `/uploads/${filename}`);
 		/*let filepath= './uploads/' +filename*/
 			cloudinary.uploader.upload_large(filepath, 
             function(result) {

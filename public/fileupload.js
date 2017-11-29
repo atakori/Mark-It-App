@@ -1,60 +1,6 @@
 let video_id;
 let video_url;
 
-function handleVideoUpload() {
-	$('#fileupload').fileupload({
-		dataType: 'json',
-        add: function (e, data) {
-            let formelement= document.getElementById("file_upload_form")
-            if(data.files[0].size <= "40000000" && data.files[0].type === "video/mp4") {
-              console.log('Meets file size and type limits');
-              $('.error_message').empty();
-              removePresentUploadButton();
-              data.context = $(`<button id="upload_button" class= "btn btn-lg btn-primary confirm_upload_button">Upload Video</button>`)
-                .appendTo(formelement)
-                .click(function () {
-                    data.context = $(`<img class = "loading_gif"src="/ajax-loader-2.gif" alt="File loading">`).replaceAll($(this));
-                    $('.upload_section').hide();
-                    data.submit();
-                });
-            } else if (data.files[0].size > "40000000") {
-              console.log('file too big');
-              $('.error_message').html(`File exceeds 40mb limit. Please choose a smaller file.`);
-              removePresentUploadButton()
-            } else {
-              console.log('Video not mp4 file');
-              $('.error_message').html(`${data.files[0].type} not currently supported. Please convert file to an mp4 to upload`);
-              removePresentUploadButton()
-            }
-            console.log(data);
-          //checks to make sure that file siza and type limits are being met
-        },
-        done: function (e, data) {
-        	let result= data.result;
-        	console.log(result);
-            data.context = $(`<p/>`).replaceAll($(this))
-            $('.loading_gif').hide();
-            console.log('video uploaded to cloudinary!');
-       		//show user the results and input fields
-       		//change upload file to finalizing
-       		video_id = result.public_id;
-       		video_url = result.secure_url;
-       		hideUploader();
-       		showVideoInfo();
-
-        }
-/*        progressall: function (e, data) {
-        let progress = parseInt(data.loaded / data.total * 100, 10);
-        console.log("uploading file to server");
-        $('#progress .bar').css(
-            'width',
-            progress + '%'
-        );
-        console.log(progress + '%')
-    }*/ //removing upload progress bar (not needed for server upload)
-    });
-}
-
 function removePresentUploadButton() {
   if (document.getElementById('upload_button')) {
     let button = document.getElementById('upload_button');
@@ -76,6 +22,14 @@ function hideUploader() {
 
 function showUploader(){
 	$('.video_uploader').show();
+}
+
+function hideLoadingGif() {
+  $('.gif_container').hide();
+}
+
+function showLoadingGif() {
+  $('.gif_container').show();
 }
 
 function grabVideoData() {
@@ -116,44 +70,96 @@ function checkforFilledForm() {
   })
 }
 
-/*function handleVideoUpload (){
-$('.video-info').append($.cloudinary.unsigned_upload_tag("o8uzrarh", 
+function handleVideoUpload (){
+$('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh", 
   { cloud_name: 'mark-it-cloud' }).bind('cloudinaryprogress', function(e, data) { 
-  $('.progress_bar').css('width', 
-    Math.round((data.loaded * 100.0) / data.total) + '%'); 
-
-  console.log(data);
-  console.log(data.results);
+  console.log((Math.round((data.loaded * 100.0) / data.total) + '%'));
+  //logs percentage loaded -- to be replace by load bar
 
   if((Math.round((data.loaded * 100.0) / data.total) + '%') === "100%") {
-  	$('.progress_bar').html('Video Ready to be uploaded');
-  	$('.progress_bar').css('background-color', 'green');
-  	console.log("video uploaded");
-  } else if ((Math.round((data.loaded * 100.0) / data.total) + '%') === undefined) {
-	$('.progress_bar').html('Please select a video to upload');
-  	$('.progress_bar').css('background-color', 'none');
-  } else {
-  	$('.progress_bar').html('Video Loading');
-  	$('.progress_bar').css('background-color', 'red');
-  }
-}))
-console.log($(".progress_bar").widthPerc());
+    setTimeout(function() {
+      console.log(data.result)
+      let result= data.result
+      video_id = result.public_id;
+      video_url = result.secure_url;
+      hideUploader();
+      showVideoInfo();
+      console.log('Video uploaded to cloudinary');
+    }, 10000);
+    //using timeout is neccessary since cloudinary needs time
+    //to store the data.results so that it does not come back
+    //as undefined 10 sec buffer for 40mb upload max works
+  
+  }  else {
+      $('.upload_section').hide();
+      showLoadingGif();
+      console.log('still uploading');
+    }
+  }))
 }
 
 function handleUserSelectedVideo() {
-	$('input').on('click', '.cloudinary_fileupload', function(e) {
-		$('.upload_video_page').append(`<div class= "progress_bar_border"> 
-					<p class="progress_bar"></p>
-			</div>`)
-	})
+  $('input').on('click', '.cloudinary_fileupload', function(e) {
+    $('.video_uploader').html(`<img class = "loading_gif"src="/ajax-loader-2.gif" alt="File loading">`);
+  })
 }
 
-$.fn.widthPerc = function(){
-    var parent = this.parent();
-    return ~~((this.width()/parent.width())*100)+"%";
-}
-*/
-/*$(handleUserSelectedVideo());*/
 $(checkforFilledForm());
+$(handleUserSelectedVideo())
 $(handleVideoUpload());
 hideVideoInfo();
+hideLoadingGif();
+
+/*Code for Node JS server upload*/
+
+/*function handleVideoUServerpload() {
+  $('#fileupload').fileupload({
+    dataType: 'json',
+        add: function (e, data) {
+            let formelement= document.getElementById("file_upload_form")
+            if(data.files[0].size <= "40000000" && data.files[0].type === "video/mp4") {
+              console.log('Meets file size and type limits');
+              $('.error_message').empty();
+              removePresentUploadButton();
+              data.context = $(`<button id="upload_button" class= "btn btn-lg btn-primary confirm_upload_button">Upload Video</button>`)
+                .appendTo(formelement)
+                .click(function () {
+                    data.context = $(`<img class = "loading_gif"src="/ajax-loader-2.gif" alt="File loading">`).replaceAll($(this));
+                    $('.upload_section').hide();
+                    data.submit();
+                });
+            } else if (data.files[0].size > "40000000") {
+              console.log('file too big');
+              $('.error_message').html(`File exceeds 40mb limit. Please choose a smaller file.`);
+              removePresentUploadButton()
+            } else {
+              console.log('Video not mp4 file');
+              $('.error_message').html(`${data.files[0].type} not currently supported. Please convert file to an mp4 to upload`);
+              removePresentUploadButton()
+            }
+            console.log(data);
+          //checks to make sure that file siza and type limits are being met
+        },
+        done: function (e, data) {
+          let result= data.result;
+          console.log(result);
+            data.context = $(`<p/>`).replaceAll($(this))
+            $('.loading_gif').hide();
+            console.log('video uploaded to cloudinary!');
+          //show user the results and input fields
+          //change upload file to finalizing
+          video_id = result.public_id;
+          video_url = result.secure_url;
+          hideUploader();
+          showVideoInfo();
+        }
+/*        progressall: function (e, data) {
+        let progress = parseInt(data.loaded / data.total * 100, 10);
+        console.log("uploading file to server");
+        $('#progress .bar').css(
+            'width',
+            progress + '%'
+        );
+        console.log(progress + '%')
+    }
+    });*/ //removing upload progress bar (not needed for server upload) 
