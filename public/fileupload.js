@@ -74,7 +74,7 @@ function checkforFilledForm() {
 function handleVideoUpload (){
 $('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh", 
   { cloud_name: 'mark-it-cloud' }).bind('cloudinaryprogress', function(e, data) { 
-  console.log((Math.round((data.loaded * 100.0) / data.total) + '%'));
+  /*console.log((Math.round((data.loaded * 100.0) / data.total) + '%'));*/
   //logs percentage loaded -- to be replace by load bar
   let file = data.files[0];
 
@@ -87,7 +87,7 @@ $('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh",
 
   /*Check if the selected file meets the upload requirements*/
   if(file.size <= "40000000" && file.type === "video/mp4") {
-              console.log('Meets file size and type limits');
+              //Meets file size and type limits
                     $('.upload_section').hide();
                     showLoadingGif();
                     console.log('still uploading');
