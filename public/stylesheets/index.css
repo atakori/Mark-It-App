@@ -164,6 +164,10 @@ footer {
   background: rgba(115, 133, 159, 0.75);
 }
 
+.clear {
+  clear: both;
+}
+
 @media (max-width: 744px) {
   .mark_it_summary_section {
     width: 100%;
@@ -184,5 +188,18 @@ footer {
  @media (max-width:1300px) {
     .jumbotron {
       background-position: center center;
+    }
+  }
+  @media (max-width: 407px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
+
+  @media (max-height: 765px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
     }
   }
