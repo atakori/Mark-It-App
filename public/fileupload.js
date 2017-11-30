@@ -78,45 +78,43 @@ $('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh",
   //logs percentage loaded -- to be replace by load bar
   let file = data.files[0];
 
-if(!uploadInProgress) {
+/*if(!uploadInProgress) {
    jqXHR = data.submit();  //for aborting the upload process
    uploadInProgress = true;
-}
+} */
+//this if statement prevents the upload from continually
+//starting then stopping the upload
+
   /*Check if the selected file meets the upload requirements*/
   if(file.size <= "40000000" && file.type === "video/mp4") {
               console.log('Meets file size and type limits');
-              //proceed with upload...
-               if((Math.round((data.loaded * 100.0) / data.total) + '%') === "100%") {
-                  setTimeout(function() {
-                    console.log(data.result)
+                    $('.upload_section').hide();
+                    showLoadingGif();
+                    console.log('still uploading');
+                  
+            } else if (file.size > "40000000") {
+              e.preventDefault();
+              data.abort(); //supposed to stop the upload
+              jqXHR = null;
+              $('.error_message').html(`File exceeds 40mb limit. Please choose a smaller file.`);
+              return console.log('file too big');
+            } else {
+              e.preventDefault();
+              $('.error_message').html(`${file.type} not currently supported. Please convert file to an mp4 to upload`);
+              console.log('Video not mp4 file');
+              data.abort(); //supposed to stop the upload
+              jqXHR = null;
+            }
+  }).bind('cloudinarydone', function(e, data) {
+    console.log(data.result)
                     let result= data.result
                     video_id = result.public_id;
                     video_url = result.secure_url;
                     hideUploader();
                     showVideoInfo();
                     console.log('Video uploaded to cloudinary');
-                  }, 10000);
-                  //using timeout is neccessary since cloudinary needs time
-                  //to store the data.results so that it does not come back
-                  //as undefined 10 sec buffer for 40mb upload max works
-                
-                } else {
-                    $('.upload_section').hide();
-                    showLoadingGif();
-                    console.log('still uploading');
-                  }
-            } else if (file.size > "40000000") {
-              e.preventDefault();
-              jqXHR.abort();
-              $('.error_message').html(`File exceeds 40mb limit. Please choose a smaller file.`);
-              return console.log('file too big');
-            } else {
-              e.preventDefault();
-              jqXHR.abort();
-              $('.error_message').html(`${file.type} not currently supported. Please convert file to an mp4 to upload`);
-              return console.log('Video not mp4 file');
-            }
-  }))
+  })
+  )
 }
 
 function handleUserSelectedVideo() {
