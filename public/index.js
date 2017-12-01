@@ -84,5 +84,4 @@ function postUsernametoClass(className, currentUser) {
 
 getUsername();
 $(handleCreateClassesButton());
-$(handleLoginButton());
 $(handleSearchClassesButton());

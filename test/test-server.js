@@ -236,14 +236,6 @@ describe('Class API resource', function() {
 				res.should.be.html
 			})
 		})
-		it.skip('should return all of the currentUsers classes', function() {
-			return chai.request(app)
-			.get("/api/usersclasses")
-			.then(function(res) {
-				res.should.be.json;
-			})
-		})  
-		//need to access req.users
 		it('should redirect the user to the home page upon logging out', function() {
 			return chai.request(app)
 			.get("/logout")
@@ -311,7 +303,18 @@ describe('Class API resource', function() {
 				//this is the best way to test if the post method worked
 			})
 		})
-		it.skip('should remove the user from the selected class', function() {
+		it('should delete the class from the database', function() {
+			return chai.request(app)
+			.delete("/api/test/deleteclass")
+			//testing /class/:name/deleteclass`
+			.then(function(res) {
+				res.should.be.json;
+				res.body.should.be.deep.equal({n: 10, ok:1})
+			})
+		})
+
+//Below tests cannot be executed at this time since passport is responible for providing res.user
+/*		it('should remove the user from the selected class', function() {
 			return chai.request(app)
 			.post("/class/test/deleteuser")
 			//testing /class/:name/deleteuser
@@ -321,16 +324,16 @@ describe('Class API resource', function() {
 				//skipping because the res gives you the classdata
 				//before removing the username even though it is removed
 			})
-		})
-		it.skip('should delete the class from the database', function() {
+		})*/
+
+/*		it.('should return all of the currentUsers classes', function() {
 			return chai.request(app)
-			.delete("/api/test/deleteclass")
-			//testing /class/:name/deleteclass`
+			.get("/api/usersclasses")
 			.then(function(res) {
 				res.should.be.json;
-				res.should.be.equal(1)
 			})
-		})
+		})  */
+		//need to access req.users
 
 /*		it('should post the new class to the database', function() {
 			let classData = {
