@@ -106,6 +106,8 @@ $('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh",
               jqXHR = null;
             }
   }).bind('cloudinarydone', function(e, data) {
+    let file = data.files[0];
+    if (file.size <= "40000000" && file.type === "video/mp4") {
     console.log(data.result)
                     let result= data.result
                     video_id = result.public_id;
@@ -113,7 +115,7 @@ $('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh",
                     hideUploader();
                     showVideoInfo();
                     console.log('Video uploaded to cloudinary');
-  })
+  }})
   )
 }
 
