@@ -119,3 +119,10 @@ footer {
 	margin-right: auto;
 	font-family: 'Crete Round', serif;
 }
+
+  @media (max-height: 530px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
