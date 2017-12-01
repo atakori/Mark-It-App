@@ -107,3 +107,36 @@ form {
     color: black;
 }
 
+    @media (max-width: 767px) {
+    form {
+      margin-top: 100px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
+
+
+
+   @media (min-height: 500px) {
+    form {
+      margin-top: 50px;
+    }
+  }
+
+  @media (min-height: 546px) {
+    form {
+      margin-top: 100px;
+    }
+  }
+  @media (min-height: 655px) {
+    form {
+      margin-top: 200px;
+    }
+  }
+
+
