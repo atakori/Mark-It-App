@@ -157,3 +157,21 @@ input:-webkit-autofill:active {
     margin-right: 10px;
   }
 }
+
+.clear {
+  clear:both;
+}
+
+@media (max-width: 520px) {
+  footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+}
+
+  @media (max-height: 900px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
