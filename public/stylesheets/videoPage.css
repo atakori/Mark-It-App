@@ -68,20 +68,21 @@ footer {
   height: 200px;
 }
 
-footer {
-  margin: 0 0 -200px;
+/*footer {
+  bottom: auto;
+  margin-top: 15px;
 }
-
-@media (min-width: 366px) {
-  .video-js {
-  height: 300px
-  }
-}
+*/
 
 @media (min-width: 550px) {
   .video-js {
   height: 500px
   }
+
+  footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
 }
 
 @media (min-width: 1095px) {
@@ -89,3 +90,10 @@ footer {
   height: 700px
   }
 }
+
+  @media (max-height: 765px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
