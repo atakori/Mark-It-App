@@ -115,3 +115,15 @@ form {
     	margin-top: 200px;
     }
   }
+
+  @media (max-width:390px) {
+  	label {
+  		display:block;
+  	}
+
+  	input {
+  		display:block;
+  		margin-left: auto;
+  		margin-right: auto;
+  	}
+  }
