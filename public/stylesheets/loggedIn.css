@@ -110,9 +110,26 @@ font-family: 'Bree Serif', serif;
 	background-color: white;
 	background-color: rgba(0,10,25,.76);
 	color: white;
+  }
 }
 
+.clear {
+  clear: both;
 }
+
+  @media (max-height: 765px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
+
+  @media (max-width: 766px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
 
 @media (max-width: 615px) {
   .btn {
@@ -120,7 +137,5 @@ font-family: 'Bree Serif', serif;
   	margin-bottom: 10px;
   }
 
-  footer p {
-  	margin: 0 0 -20px;
-  }
-}
+
+
