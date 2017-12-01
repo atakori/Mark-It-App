@@ -175,3 +175,8 @@ input:-webkit-autofill:active {
       margin-top: 15px;
     }
   }
+@media (max-width: 500px) {
+      .search_term {
+      font-size: 1.5em;
+    }
+  }

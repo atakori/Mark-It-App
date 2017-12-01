@@ -43,15 +43,15 @@ form {
 
 .username_input {
 	width: 60%;
-    height: 40px;
-    font-size: 30px;
+    height: 1.3em;
+    font-size: 2em;
     color: black;
 }
 
 .password_input {
 	width: 60%;
-    height: 40px;
-    font-size: 30px;
+    height: 1.3em;
+    font-size: 2em;
     color: black;
 }
 
