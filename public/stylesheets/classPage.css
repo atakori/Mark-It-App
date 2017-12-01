@@ -148,4 +148,19 @@ footer {
 	float:none;
 	width: 90%;
 	}
+	footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
 }
+
+.clear {
+  clear: both;
+}
+
+  @media (max-height: 600px) {
+    footer {
+      bottom: auto;
+      margin-top: 15px;
+    }
+  }
