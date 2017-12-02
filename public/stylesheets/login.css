@@ -120,10 +120,13 @@ form {
   	label {
   		display:block;
   	}
+  }
 
-  	input {
+@media (max-width:500px) {
+		input {
   		display:block;
   		margin-left: auto;
   		margin-right: auto;
+  		line-height: 1.3;
   	}
-  }
+}

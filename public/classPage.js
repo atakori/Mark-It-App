@@ -136,6 +136,8 @@ function renderAddedUsertoClassMessage() {
 			You have successfully been added to the class!</p>`)
 }
 
+
+//**FUTURE CODE for implementation of server-side upload**
 /*function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_id, video_url) {
 	let url = `/class/${className}/upload?videoTitle=${videoTitle}&classDate=${classDate}&dancers=${dancers}&video_id=${video_id}&video_url=${video_url}`;
 	$.post(url, function(data) {
