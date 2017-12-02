@@ -64,8 +64,6 @@ function handleCreateClassesButton() {
 			      success: function(feedback){
 			      	let className = feedback.className;
 			      	let currentUser = username;
-			         console.log("Class successfully created");
-			         console.log(feedback);
 			         postUsernametoClass(className, currentUser);
 			         $('.create_class_page').html(`<h1 class= "created_message"> Your new class has been created</h1>
 			         	<a href= "/class/${feedback.className}"><button> Go to ${feedback.className} class page!</button> </a>`)
