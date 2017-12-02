@@ -1,28 +1,8 @@
 let currentClassData;
 
-function displayClasses(data) {
-	for (index in data.classes) {
-		$('.class_results_page').html(`<li class = "class_name"> ${data.className} |
-			 ${data.genre} | ${data.studio.name} | ${data.weeklyDayandTime}
-			</li>`)
-	}
-}
-
-function getAndDisplayClasses () {
-	getClasses(displayClasses);
-}
-
-//RESULTS SECTION
-/*function handleSearchClassesButton() {
-	$('.class_results_form').on('click', '.search_button',function(e){
-	  e.preventDefault();
-	  const choreographer = $(e.target).find('input[name=choreographer]').val()
-	  getClasses(choreographer);
-	});
-}*/
-
 function getClasses(choreographer) {
 	let url = `/searchresults?choreographer=${choreographer}`;
+  	console.log(choreographer);
   	$.getJSON(url).then( data => {
   		displaySearchResults(data);
   	//makes a call to the server to grab the classes with a matching
@@ -55,38 +35,3 @@ function getPageInformation(className) {
   	//choreographer name that is entered by the user
   });
 }
-
-function displayClassPage(classdata) {
-	window.location.replace("/classPage");
-	displayPageInformation(classdata);
-	//displayPageInformation not running due to the 
-	//re-rendering of the page
-}
-
-function displayPageInformation(data) {
-	$('.class-title').html(`<h1> displayPageInformation is still being called!</h1>`);
-}
-
-
-//MY CLASSES SECTION
-function getUserCurrentClasses(callback) {
-	//this will be used to look in the mongoose db and filter 
-	//for all classes with the user's username under the 
-	//currentStudents Field. All of those classes will then 
-	//display on the users My Classes Screen
-}
-
-function displayUserClasses(data) {
-	for (index in data.classes) {
-		$('.class_list_page').html(`<li class = "class_name"> ${data.className} |
-			 ${data.genre} | ${data.studio.name} | ${data.weeklyDayandTime}
-			</li>`)
-	}
-}
-
-function getandDisplayCurrentUserClasses() {
-	getUserCurrentClasses(displayUserClasses);
-}
-
-$(getAndDisplayClasses());
-$(getandDisplayCurrentUserClasses());
