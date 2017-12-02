@@ -5,10 +5,10 @@ function getUsername() {
 	$.getJSON(url).then(userdata => {
 		currentUser = userdata.currentUser.username;
 		getClassData(currentUser);
-		console.log(currentUser);
 	})
 }
-//makes the username available as a global variable
+//grabs the current userdata from the server then
+//passes the current user to getCLassData function
 
 function getClassData(currentUser) {
 	let className = $(location).attr('pathname').split("/");
@@ -16,22 +16,24 @@ function getClassData(currentUser) {
 			className = className.join(' ');
 	let url = `/classdata?className=${className}`;
 	$.getJSON(url).then(data => {
-		console.log(data);
   		displayClassData(data)
   		if(currentUser === data.matchingClasses[0].adminUser) {
   			displayAdminInfo();
   		}
   }) 
 }
+//Looks through all classes in the DB for class
+//information to display on the page
 
 function displayAdminInfo() {
 	$('.class_admin_section').html(`<button class= "btn btn-lg btn-danger admin_delete_class_button">Permanently Delete Class</button>`)
 }
+//displays admin features if the user in the admin
+//for the class
 
 function handleDeleteClassButton() {
 	$('.class_admin_section').on('click', '.admin_delete_class_button', function(e) {
 		e.preventDefault();
-		console.log("WORKING!")
 		let className = $(location).attr('pathname').split("/");
 			className = className[2].split("%20");
 			className = className.join(' ');
@@ -44,8 +46,6 @@ function deleteClassFromDatabase(className) {
 		url: `/api/${className}/deleteclass`,
 		type: 'DELETE',
 		success: function(result) {
-			console.log(result);
-			console.log('Class successfully deleted from database!');
 			$('main').html(`<h1 class = "deleted_message">This class has been deleted</h1>
 				<a href= "/userHome"><button class= "home_button">Back to Home Page</button></a>`);
 		}
@@ -120,10 +120,9 @@ function handleAddClassButton() {
 function postUsernametoClass (className, currentUser) {
 	let url= `/class/${className}/addUser?currentUser=${currentUser}`;
 	$.post(url, function(data) {
-		console.log(data)
+		console.log(data);
 	})
 	.done(function() {
-		console.log('User successfully enrolled');
 		renderAddedUsertoClassMessage();
 		//need to add $('.').html() to add visual feedback
 		//user they have been added!
