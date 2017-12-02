@@ -57,8 +57,6 @@ function postVideoInfotoServer(className, videoTitle, classDate, dancers, video_
 function checkforFilledForm() {
   $('.upload_form').on('click', '.post_video_info', function (e) {
     e.preventDefault()
-    console.log('button works')
-    console.log($('.video_title_input').val().length === 0)
     if ($('.video_title_input').val().length === 0) {
       $('.response_message').html(`Please fill out the video's title`);
     } else if ($('.class_date_input').val().length === 0) {
@@ -89,9 +87,7 @@ $('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh",
   if(file.size <= "40000000" && file.type === "video/mp4") {
               //Meets file size and type limits
                     $('.upload_section').hide();
-                    showLoadingGif();
-                    console.log('still uploading');
-                  
+                    showLoadingGif();                  
             } else if (file.size > "40000000") {
               e.preventDefault();
               data.abort(); //supposed to stop the upload
@@ -101,20 +97,17 @@ $('.upload_section').append($.cloudinary.unsigned_upload_tag("o8uzrarh",
             } else {
               e.preventDefault();
               $('.error_message').html(`${file.type} not currently supported. Please convert file to an mp4 to upload`);
-              console.log('Video not mp4 file');
               data.abort(); //supposed to stop the upload
               jqXHR = null;
             }
   }).bind('cloudinarydone', function(e, data) {
     let file = data.files[0];
     if (file.size <= "40000000" && file.type === "video/mp4") {
-    console.log(data.result)
-                    let result= data.result
-                    video_id = result.public_id;
-                    video_url = result.secure_url;
-                    hideUploader();
-                    showVideoInfo();
-                    console.log('Video uploaded to cloudinary');
+      let result= data.result
+      video_id = result.public_id;
+      video_url = result.secure_url;
+      hideUploader();
+      showVideoInfo();
   }})
   )
 }
