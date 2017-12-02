@@ -10,8 +10,8 @@ When a user creates their own class, they become the adminstrator of that create
 have the ability to delete classes from the database. However, administrative features will be extended in future 
 versions of the application.
 
-![Mark It Landing Page Screenshot](mark-it-landing-page-screenshot.jpeg)
-![Mark It User Home Screenshot](mark-it-userHome-screenshot.jpeg)
+![Mark It Landing Page Screenshot](mark-it-landing-page-screenshot.png)
+![Mark It User Home Screenshot](mark-it-userHome-screenshot.png)
 
 -----------------
 Technologies Used
