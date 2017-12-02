@@ -88,48 +88,5 @@ function getandDisplayCurrentUserClasses() {
 	getUserCurrentClasses(displayUserClasses);
 }
 
-//DANCE PAGE SECTION
-function getAllClassVideos(callback) {
-	//this function will be used to look in the mongoose DB 
-	//for the cooresponding class name using .find() to return 
-	//that class infromation. It will the find look for the 
-	//videos section to grab that data
-}
-
-function displayClassVideos(data) {
-	for (index in data.classes.videos) {
-		$('.videos').html(`<div class= "class_video"> 
-			${data.classes.videos.title} | Performed by: 
-			${data.classes.videos.dancers} | Class Date: 
-			${data.classes.videos.uploadDate}</div>`);
-	}
-}
-
-function getAndDisplayClassVideos() {
-	getAllClassVideos(displayClassVideos);
-}
-
-//UPLOAD NEW VIDEO SECTION
-
-
-// DANCE VIDEO PAGE SECTION
-function getSelectedDanceVideo(callback) {
-	//this function will look for the cooresponding video
-	//in the mongoose db and will return actual video
-	//information and file path
-} 
-
-function displaySelectedDanceVideo(data) {
-	$('.dance_video_page').html(`<h1 class= "video_title">
-		${data.title}</h1>`)
-	//insert dance video here (src?)
-}
-
-function getAndDisplayDanceVideo() {
-	getSelectedDanceVideo(displaySelectedDanceVideo);
-}
-
 $(getAndDisplayClasses());
 $(getandDisplayCurrentUserClasses());
-$(getAndDisplayClassVideos());
-$(getAndDisplayDanceVideo());
