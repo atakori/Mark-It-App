@@ -2,7 +2,6 @@ let currentClassData;
 
 function getClasses(choreographer) {
 	let url = `/searchresults?choreographer=${choreographer}`;
-  	console.log(choreographer);
   	$.getJSON(url).then( data => {
   		displaySearchResults(data);
   	//makes a call to the server to grab the classes with a matching
@@ -31,7 +30,7 @@ function getPageInformation(className) {
 	let url = `/classdata?className=${className}`;
 	$.getJSON(url).then(data => {
   		displayClassPage(currentClassData);
-  	//makes a call to the server to grab the classes with a matching
-  	//choreographer name that is entered by the user
-  });
+  	//makes a call to the server to get the specific
+  	//classes information to display for a class page
+  	});
 }
