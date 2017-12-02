@@ -169,7 +169,7 @@ input:-webkit-autofill:active {
     }
 }
 
-  @media (max-height: 900px) {
+  @media (max-height: 640px) {
     footer {
       bottom: auto;
       margin-top: 15px;
