@@ -1,7 +1,6 @@
 function getUsername() {
 	let url = `/api/user_data`;
 	$.getJSON(url).then(data => {
-		console.log(data);
 		displayUserName(data);
 	})
 }
@@ -31,7 +30,6 @@ function handleDeleteClassButton() {
 	$('.user_class_list').on('click', '.delete_class_button', function(e) {
 		e.preventDefault();
 		let className = $(this).parent().attr('className')
-		console.log(className);
 		deleteUsernameFromClass(className);
 	})
 }
@@ -42,11 +40,11 @@ function deleteUsernameFromClass(className) {
 		$('.user_class_list').empty();
 	})
 	.done(function(feedback) {
-		console.log(`User successfully removed from ${className}`)
-		console.log(feedback);
 		getUserClasses();
 	})
 }
+//after deleting the user from the class, the user's 
+//classes updates on the page by running getUserClasses()
 
 function renderUsersClassesList(classes) {
 	for(let i=0; i<classes.length; i++) {
