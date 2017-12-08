@@ -13,9 +13,8 @@ versions of the application.
 ----------
 Test Login
 ----------
-Username: test
-Password: test123
-  - For Search feature use "Alfredo Takori"
+Username: test |  Password: test123
+- For Search feature use "Alfredo Takori"
   
 
 ![Mark It Landing Page Screenshot](mark-it-landing-page-screenshot.png)
