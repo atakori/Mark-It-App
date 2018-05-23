@@ -1,9 +1,7 @@
-#Mark-It-App
-
 -------
 Summary
 -------
-Mark it is an app that allows users to easily upload and view daily dance classes. 
+<a href="https://agile-ravine-63204.herokuapp.com/">Mark it</a> is an app that allows users to easily upload and view daily dance classes. 
 Choreographers can create classes and upload videos to them to keep them in one easy to access site. 
 Dancers can also add these classes to their accounts to make sure they never miss a class video!
 When a user creates their own class, they become the adminstrator of that created class. The administrators currently
