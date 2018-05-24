@@ -25,6 +25,11 @@ function displayVideoInformation(data) {
 			$('.class_video_section').append(`<a href= "/class/${data.className}"><button class= "btn btn-lg btn-primary back_to_class_button"> Back to class</button></a>`)
 		}
 	}
+	initializePlayer();
+}
+
+function initializePlayer() {
+	videojs("my_video_1",{"aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }, function() {})
 }
 
 getClassInfo();
