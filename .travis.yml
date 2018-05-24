@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: bb9fdcd9-dbfb-455d-8ab6-10561e4d7ec9
+  app: agile-ravine-63204
+  on:
+    repo: atakori/Mark-It-App
